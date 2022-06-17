@@ -1,0 +1,95 @@
+@import url("normalize.css");
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  --color-light: #fff;
+  --color-dark: #1f1f1f;
+  --color-silver-sand: #bec2c5;
+  --color-alto: #e0e0e0;
+  --color-primary: #80a584;
+  --color-secondary: #fc6904;
+  --color-thindly: #7099b9;
+}
+
+/* Fonts */
+
+@font-face {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/Montserrat-Regular.woff") format("woff"),
+    url("../fonts/Montserrat-Regular.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 700;
+  src: url("../fonts/Montserrat-Bold.woff") format("woff"),
+    url("../fonts/Montserrat-Bold.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: SegoeUI;
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/SegoeUI.woff") format("woff"),
+    url("../fonts/SegoeUI.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: SegoeUI;
+  font-style: normal;
+  font-weight: 600;
+  src: url("../fonts/SegoeUI-SemiBold.woff") format("woff"),
+    url("../fonts/SegoeUI-SemiBold.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: SegoeUI;
+  font-style: normal;
+  font-weight: 700;
+  src: url("../fonts/SegoeUI-Bold.woff") format("woff"),
+    url("../fonts/SegoeUI-Bold.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/SegoeUI-Regular.woff") format("woff"),
+    url("../fonts/SegoeUI-Regular.woff2") format("woff2");
+  font-display: swap;
+}
+
+/* Default styles */
+
+body {
+  font-family: SegoeUI, sans-serif;
+  background-color: var(--color-light);
+}
+
+/* Components */
+
+.title {
+  font-weight: 600;
+  line-height: 1.31;
+}
+
+.title--primary {
+  color: var(--color-dark);
+}
+
+/* Partials */
