@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="address=no">
+    <meta name="robots" content="noodp, noydir">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <style src="./style.css"></style>
+    <title>Корзина</title>
+  </head>
+  <body>
+    <main>
+      <div class="mtcheck-display">
+        <div class="container">
+          <p class="title title--xl title--primary mtcheck-display__title">Оформление заказа</p>
+        </div>
+        <div class="container">
+          <div class="mtcheck-display__left">
+            <div class="mtcheck-products">
+              <div class="mtcheck-products__head">
+                <label class="checkbox">
+                  <input type="checkbox" class="checkbox__input" checked>
+                  <span class="checkbox__display"></span>
+                  Выбрать все (2)
+                </label>
+                <div class="mtcheck-products__actions">
+                  <button class="btn-reset link mtcheck-products__action" id="remove-everything">удалить из корзины</button>
+                  <button class="btn-reset link mtcheck-products__action" id="buy-everything">заказать в 1 клик</button>
+                </div>
+                <div class="mtcheck-products__info">
+                  <span class="text text--xs">Кол-во</span>
+                  <span class="text text--xs">Сумма</span>
+                </div>
+              </div>
+              <div class="mtcheck-products__body">
+                <div class="mtcheck-products__list">
+                  <article class="mtcheck-product">
+                    <div class="mtcheck-product__column">
+                      <label class="checkbox">
+                        <input type="checkbox" class="visually-hidden checkbox__input" checked>
+                        <span class="checkbox__display"></span>
+                      </label>
+                      <div class="mtcheck-product__image">
+                        <img src="./images/products/product-1.png" alt="Изображение товара">
+                      </div>
+                      <div class="mtcheck-product__info">
+                        <p class="text text--md text--primary mtcheck-product__name">Таймер кухонный, электронный, Baldr</p>
+                        <div class="mtcheck-product__properties">
+                          <span class="text text--xs text--secondary mtcheck-product__brand">Бренд: Baldr</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="mtcheck-product__column">
+                      <div class="mtcheck-product__count">
+                        <div class="counter">
+                          <input type="number" value="1" min="1" max="50" class="counter__display">
+                          <input type="button" value="-" class="btn-reset counter__action counter__action--decrement">
+                          <input type="button" value="+" class="btn-reset counter__action counter__action--increment">
+                        </div>
+                        <span class="text text--xs mtcheck-product__sign">нет в выбранном количестве</span>
+                      </div>
+                      <div class="mtcheck-product__wrapper">
+                        <p class="title title--xs title--primary mtcheck-product__price">126 281 <span>&#8381;</span></p>
+                        <button class="btn-reset mtcheck-product__remove" data-action="product-remove" aria-label="Удалить товар из корзины"></button>
+                      </div>
+                    </div>
+                  </article>
+                  <article class="mtcheck-product">
+                    <div class="mtcheck-product__column">
+                      <label class="checkbox">
+                        <input type="checkbox" class="visually-hidden checkbox__input">
+                        <span class="checkbox__display"></span>
+                      </label>
+                      <div class="mtcheck-product__image">
+                        <img src="./images/products/product-2.png" alt="Изображение товара">
+                      </div>
+                      <div class="mtcheck-product__info">
+                        <p class="text text--md text--primary mtcheck-product__name">Робот-пылесос PVCR 0726W (POLARIS), Polaris бежевый цвет официальный магазин Поларис</p>
+                        <div class="mtcheck-product__properties">
+                          <span class="text text--xs text--secondary mtcheck-product__brand">Цвет: бежевый</span>
+                          <span class="text text--xs text--secondary mtcheck-product__brand">Комплект: полный</span>
+                          <span class="text text--xs text--secondary mtcheck-product__brand">Размер: 28</span>
+                          <span class="text text--xs text--secondary mtcheck-product__brand">Состояние: новый</span>
+                          <span class="text text--xs text--secondary mtcheck-product__brand">Цвет рамки: золотой</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="mtcheck-product__column">
+                      <div class="mtcheck-product__count">
+                        <div class="counter">
+                          <input type="number" value="2" min="1" max="50" class="counter__display">
+                          <input type="button" value="-" class="btn-reset counter__action counter__action--decrement">
+                          <input type="button" value="+" class="btn-reset counter__action counter__action--increment">
+                        </div>
+                      </div>
+                      <div class="mtcheck-product__wrapper">
+                        <p class="title title--xs title--primary mtcheck-product__price">681 <span>&#8381;</span></p>
+                        <button class="btn-reset mtcheck-product__remove" data-action="product-remove" aria-label="Удалить товар из корзины"></button>
+                      </div>
+                    </div>
+                  </article>
+                  <article class="mtcheck-product mtcheck-product--deleted">
+                    <div class="mtcheck-product__column">
+                      <div></div>
+                      <div></div>
+                      <div class="mtcheck-product__info">
+                        <p class="text mtcheck-product__name">Газобетонный стеновой блок D500 600x300x250</p>
+                      </div>
+                    </div>
+                    <div class="mtcheck-product__column">
+                      <button class="btn-reset link mtcheck-product__restore" data-action="product-restore">восстановить</button>
+                      <div class="mtcheck-product__wrapper">
+                        <button class="btn-reset mtcheck-product__remove" data-action="product-remove" aria-label="Удалить товар из корзины"></button>
+                      </div>
+                    </div>
+                  </article>
+                  <article class="mtcheck-product">
+                    <div class="mtcheck-product__column">
+                      <label class="checkbox">
+                        <input type="checkbox" class="visually-hidden checkbox__input" checked>
+                        <span class="checkbox__display"></span>
+                      </label>
+                      <div class="mtcheck-product__image">
+                        <img src="./images/products/product-3.png" alt="Изображение товара">
+                      </div>
+                      <div class="mtcheck-product__info">
+                        <p class="text text--md text--primary mtcheck-product__name">Газобетонный стеновой блок D400 600x300x250</p>
+                      </div>
+                    </div>
+                    <div class="mtcheck-product__column">
+                      <div class="mtcheck-product__count">
+                        <div class="counter">
+                          <input type="number" value="899" min="1" max="1000" class="counter__display">
+                          <input type="button" value="-" class="btn-reset counter__action counter__action--decrement">
+                          <input type="button" value="+" class="btn-reset counter__action counter__action--increment">
+                        </div>
+                      </div>
+                      <div class="mtcheck-product__wrapper">
+                        <p class="title title--xs title--primary mtcheck-product__price">2 681 <span>&#8381;</span></p>
+                        <button class="btn-reset mtcheck-product__remove" data-action="product-remove" aria-label="Удалить товар из корзины"></button>
+                      </div>
+                    </div>
+                  </article>
+                </div>
+                <div class="mtcheck-products__summary">
+                  <p class="title title--sm title--primary mtcheck-products__count">Товаров, 3 шт.</p>
+                  <p class="title title--md title--primary mtcheck-products__sum">5 128 785 <span>&#8381;</span></p>
+                </div>
+              </div>
+            </div>
+            <div class="mtcheck-user">
+              <div class="mtcheck-user__head">
+                <div class="mtcheck-user__column">
+                  <p class="title title--md title--primary mtcheck-user__title">Данные покупателя</p>
+                  <button class="btn-reset info-btn" aria-label="Открыть модальное окно" data-modal></button>
+                  <button class="btn-reset btn btn--primary">Заказ без регистрации</button>
+                </div>
+                <div class="mtcheck-user__column">
+                  <span class="mtcheck-user__status">
+                    Уже зарегистрированы?
+                    <button class="btn-reset link mtcheck-user__status-change">(войти в свой аккаунт)</button>
+                  </span>
+                </div>
+              </div>
+              <p class="text text--secondary mtcheck-user__description">
+                Укажите свои контактные данные для получения заказа. В зависимости от вашего выбора могут меняться условия доставки и оплаты.
+              </p>
+              <form class="mtcheck-register">
+                <fieldset class="group mtcheck-register__type">
+                  <span class="visually-hidden">Тип покупателя</span>
+                  <label class="radio">
+                    <input type="radio" name="user-type" class="visually-hidden radio__input" checked>
+                    <span class="radio__display"></span>
+                    <span class="radio__text">Розничный покупатель</span>
+                  </label>
+                  <label class="radio">
+                    <input type="radio" name="user-type" class="visually-hidden radio__input">
+                    <span class="radio__display"></span>
+                    <span class="radio__text">Оптовый покупатель</span>
+                  </label>
+                </fieldset>
+                <fieldset class="group mtcheck-register__data">
+                  <span class="visually-hidden">Данные покупателя</span>
+                  <input type="text" class="input" name="firstName" placeholder="Имя">
+                  <input type="text" class="input" name="lastName" placeholder="Фамилия">
+                  <input type="text" class="input" name="middleName" placeholder="Отчество">
+                  <input type="text" class="input" name="company" placeholder="Компания">
+                  <input type="tel" class="input" name="phone" placeholder="Телефон" required>
+                  <input type="email" class="input" name="email" placeholder="Емейл">
+                  <input type="number" class="input" name="index" placeholder="Индекс">
+                </fieldset>
+                <fieldset class="group mtcheck-register__location">
+                  <span class="visually-hidden">Нахождение покупателя</span>
+                  <div class="select" data-name="country">
+                    <p class="select__display">Российская Федерация</p>
+                    <ul class="list-reset select__items">
+                      <li class="select__items select__items--active">Российская Федерация</li>
+                      <li class="select__item">Украина</li>
+                      <li class="select__item">Польша</li>
+                      <li class="select__item">Великобритания</li>
+                      <li class="select__item">Швеция</li>
+                      <li class="select__item">Швейцария</li>
+                      <li class="select__item">Грузия</li>
+                      <li class="select__item">Венгрия</li>
+                      <li class="select__item">Германия</li>
+                    </ul>
+                  </div>
+                  <div class="select" data-name="republic">
+                    <p class="select__display">Республика Кабардино-Балкария</p>
+                    <ul class="list-reset select__items">
+                      <li class="select__items select__items--active">Республика Кабардино-Балкария</li>
+                      <li class="select__item">Республика 1</li>
+                      <li class="select__item">Республика 2</li>
+                      <li class="select__item">Республика 3</li>
+                      <li class="select__item">Республика 4</li>
+                      <li class="select__item">Республика 5</li>
+                      <li class="select__item">Республика 6</li>
+                      <li class="select__item">Республика 7</li>
+                      <li class="select__item">Республика 8</li>
+                    </ul>
+                  </div>
+                  <input type="text" class="input" name="city" placeholder="Город">
+                  <input type="text" class="input" name="address" placeholder="Адрес">
+                </fieldset>
+                <textarea class="textarea mtcheck-register__comment" name="text" placeholder="Комментарий к заказу, пожелания, уточнения и т.п" cols="30" rows="10"></textarea>
+                <div class="mtcheck-register__password">
+                  <p class="text text--secondary">Зарегистрироваться для накопительной скидки -</p>
+                  <fieldset class="group">
+                    <span class="visually-hidden">Пароль покупателя</span>
+                    <input type="password" class="input" name="password" placeholder="Пароль">
+                    <input type="password" class="input" name="password-again" placeholder="Пароль ещё раз">
+                  </fieldset>
+                </div>
+                <div class="mtcheck-register__permits">
+                  <label class="checkbox checkbox--gray">
+                    <input type="checkbox" class="visually-hidden checkbox__input" checked>
+                    <span class="checkbox__display"></span>
+                    <span class="checkbox__text">подписаться на новостную рассылку</span>
+                  </label>
+                  <label class="checkbox checkbox--gray">
+                    <input type="checkbox" class="visually-hidden checkbox__input" checked>
+                    <span class="checkbox__display"></span>
+                    <span class="checkbox__text">отправляя данные я даю согласие на обработку персональной информации согласно <a href="#">политики конфиденциальности</a> данного сайта</span>
+                  </label>
+                </div>
+              </form>
+              <form class="mtcheck-login">
+                <fieldset class="group mtcheck-login__data">
+                  <span class="visually-hidden">Данные покупателя для авторизации</span>
+                  <input type="text" class="input" name="login" placeholder="Логин">
+                  <input type="password" class="input" name="password" placeholder="Пароль">
+                  <input type="submit" class="btn-reset btn btn--primary" value="Войти">
+                </fieldset>
+                <span class="mtcheck-login__forgot">
+                  Забыл пароль? 
+                  <button class="btn-reset link" id="password-reset">(восстановить)</button>
+                </span>
+              </form>
+            </div>
+            <div class="mtcheck-delivery">
+              <div class="mtcheck-delivery__head">
+                <p class="title title--l title--primary">Доставка</p>
+                <button class="btn-reset info-btn" aria-label="Открыть модальное окно" data-modal></button>
+              </div>
+              <p class="text text--secondary mtcheck-delivery__description">
+                Укажите свои контактные данные для получения заказа. В зависимости от вашего выбора могут меняться условия доставки и оплаты.
+              </p>
+              <div class="mtcheck-delivery__types">
+                <label class="radio mtcheck-delivery__type">
+                  <input type="radio" name="delivery-type" class="visually-hidden radio__input" checked>
+                  <span class="radio__display"></span>
+                  <span class="radio__text">Самовывоз</span>
+                  <span class="mtcheck-delivery__type-price">0 &#8381;</span>
+                </label>
+                <label class="radio mtcheck-delivery__type">
+                  <input type="radio" name="delivery-type" class="visually-hidden radio__input">
+                  <span class="radio__display"></span>
+                  <span class="radio__text">Фиксированная стоимость доставки</span>
+                  <span class="mtcheck-delivery__type-price">300 &#8381;</span>
+                </label>
+                <label class="radio mtcheck-delivery__type">
+                  <input type="radio" name="delivery-type" class="visually-hidden radio__input">
+                  <span class="radio__display"></span>
+                  <span class="radio__text">Доставка почтой России</span>
+                  <span class="mtcheck-delivery__type-price">600 &#8381;</span>
+                </label>
+              </div>
+              <p class="message message--danger">для бесплатной доставки добавьте товаров на 5600 &#8381;</p>
+            </div>
+            <div class="mtcheck-pay">
+              <div class="mtcheck-pay__head">
+                <p class="title title--l title--primary">Доставка</p>
+                <button class="btn-reset info-btn" aria-label="Открыть модальное окно" data-modal></button>
+              </div>
+              <p class="text text--secondary mtcheck-pay__description">
+                Укажите свои контактные данные для получения заказа. В зависимости от вашего выбора могут меняться условия доставки и оплаты.
+              </p>
+              <div class="mtcheck-pay__types">
+                <label class="radio mtcheck-pay__type">
+                  <input type="radio" name="pay-type" class="visually-hidden radio__input" checked>
+                  <span class="radio__display"></span>
+                  <span class="radio__text">Наличными при доставке</span>
+                </label>
+                <label class="radio mtcheck-pay__type">
+                  <input type="radio" name="pay-type" class="visually-hidden radio__input">
+                  <span class="radio__display"></span>
+                  <span class="radio__text">Банковской картой</span>
+                </label>
+              </div>
+            </div>
+            <div class="mtcheck-confirm">
+              <div class="mtcheck-confirm__head">
+                <p class="title title--l title--primary">Доставка</p>
+                <button class="btn-reset info-btn" aria-label="Открыть модальное окно" data-modal></button>
+              </div>
+              <div class="mtcheck-confirm__row">
+                <div class="mtcheck-offers">
+                  <div class="mtcheck-offers__coupon">
+                    <input type="text" class="input" name="coupon" placeholder="Купон">
+                    <button class="btn-reset btn btn--primary">Применить</button>
+                  </div>
+                  <div class="mtcheck-offers__certificate">
+                    <input type="text" class="input" name="coupon" placeholder="Подарочный сертификат">
+                    <button class="btn-reset btn btn--primary">Применить</button>
+                  </div>
+                </div>
+                <div class="mtcheck-info">
+                  <div class="mtcheck-table">
+                    <div class="mtcheck-table__item">
+                      <p class="text mtcheck-table__item-name">
+                        Доставка 
+                        <span>(фиксированная стоимость доставки)</span>
+                      </p>
+                      <span class="text mtcheck-table__item-value">300 &#8381;</span>
+                    </div>
+                    <div class="mtcheck-table__item mtcheck-table__item--margin">
+                      <p class="text mtcheck-table__item-name">
+                        Оплата 
+                        <span>(банковская карта)</span>
+                      </p>
+                    </div>
+                    <div class="mtcheck-table__item">
+                      <p class="text mtcheck-table__item-name">Бонусные баллы</p>
+                      <span class="text mtcheck-table__item-value">400 баллов</span>
+                    </div>
+                    <div class="mtcheck-table__item">
+                      <p class="text mtcheck-table__item-name">
+                        Скидка группе покупателей, 5% 
+                        <span>(серебрянный клиент)</span>
+                      </p>
+                      <span class="text mtcheck-table__item-value">- 650 &#8381;</span>
+                    </div>
+                    <div class="mtcheck-table__item">
+                      <p class="text mtcheck-table__item-name">
+                        Купон на скидку 
+                        <span>(78NHT)</span>
+                      </p>
+                      <span class="text mtcheck-table__item-value">- 5000 &#8381;</span>
+                    </div>
+                    <div class="mtcheck-table__item">
+                      <p class="text mtcheck-table__item-name">
+                        Скидка за сумму заказа, 3%
+                      </p>
+                      <span class="text mtcheck-table__item-value">- 4000 &#8381;</span>
+                    </div>
+                    <div class="mtcheck-table__item">
+                      <p class="text mtcheck-table__item-name">
+                        Налог НДС, 20%
+                      </p>
+                      <span class="text mtcheck-table__item-value"> 12 000 &#8381;</span>
+                    </div>
+                  </div>
+                  <div class="mtcheck-total">
+                    <p class="title title--xs mtcheck-total__title">Итого:</p>
+                    <p class="title mtcheck-total__sum">6 137 681 <span>&#8381;</span></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="mtcheck-summary">
+            <div class="mtcheck-summary__head">
+              <p class="title title--l title--primary">Ваш заказ</p>
+              <button class="btn-reset info-btn" aria-label="Открыть модальное окно" data-modal></button>
+              <p class="title mtcheck-summary__sum">6 137 681 <span>&#8381;</span></p>
+            </div>
+            <div class="mtcheck-table">
+              <div class="mtcheck-table__item">
+                <p class="text mtcheck-table__item-name">
+                  Доставка 
+                  <span>(фиксированная стоимость доставки)</span>
+                </p>
+                <span class="text mtcheck-table__item-value">300 &#8381;</span>
+              </div>
+              <div class="mtcheck-table__item mtcheck-table__item--margin">
+                <p class="text mtcheck-table__item-name">
+                  Оплата 
+                  <span>(банковская карта)</span>
+                </p>
+              </div>
+              <div class="mtcheck-table__item">
+                <p class="text mtcheck-table__item-name">Товары, с учетом налогов</p>
+                <span class="text mtcheck-table__item-value">5 128 785 &#8381;</span>
+              </div>
+              <div class="mtcheck-table__item">
+                <p class="text mtcheck-table__item-name">Скидка, %</p>
+                <span class="text mtcheck-table__item-value">- 650 &#8381;</span>
+              </div>
+            </div>
+            <button class="btn-reset btn btn--primary mtcheck-summary__submit">Отправить заказ</button>
+            <button class="btn-reset link mtcheck-summary__by-phone">Оформить по телефону</button>
+            <label class="checkbox checkbox--gray">
+              <input type="checkbox" class="visually-hidden checkbox__input" checked>
+              <span class="checkbox__display"></span>
+              <span class="checkbox__text">
+                согласен с политикой <a href="#">возврата товара</a> и <a href="#">правилами</a> использования сайта
+              </span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
