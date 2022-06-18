@@ -26,7 +26,7 @@
                 <label class="checkbox">
                   <input type="checkbox" class="checkbox__input" checked>
                   <span class="checkbox__display"></span>
-                  Выбрать все (2)
+                  <span class="text text--xs checkbox__text">Выбрать все (2)</span>
                 </label>
                 <div class="mtcheck-products__actions">
                   <button class="btn-reset link mtcheck-products__action" id="remove-everything">удалить из корзины</button>
@@ -40,22 +40,22 @@
               <div class="mtcheck-products__body">
                 <div class="mtcheck-products__list">
                   <article class="mtcheck-product">
-                    <div class="mtcheck-product__column">
-                      <label class="checkbox">
-                        <input type="checkbox" class="visually-hidden checkbox__input" checked>
-                        <span class="checkbox__display"></span>
-                      </label>
+                    <div class="mtcheck-product__left">
                       <div class="mtcheck-product__image">
+                        <label class="checkbox">
+                          <input type="checkbox" class="visually-hidden checkbox__input" checked>
+                          <span class="checkbox__display"></span>
+                        </label>
                         <img src="./images/products/product-1.png" alt="Изображение товара">
                       </div>
                       <div class="mtcheck-product__info">
                         <p class="text text--md text--primary mtcheck-product__name">Таймер кухонный, электронный, Baldr</p>
                         <div class="mtcheck-product__properties">
-                          <span class="text text--xs text--secondary mtcheck-product__brand">Бренд: Baldr</span>
+                          <span class="text text--xs text--secondary mtcheck-product__property">Бренд: Baldr</span>
                         </div>
                       </div>
                     </div>
-                    <div class="mtcheck-product__column">
+                    <div class="mtcheck-product__right">
                       <div class="mtcheck-product__count">
                         <div class="counter">
                           <input type="number" value="1" min="1" max="50" class="counter__display">
@@ -65,32 +65,32 @@
                         <span class="text text--xs mtcheck-product__sign">нет в выбранном количестве</span>
                       </div>
                       <div class="mtcheck-product__wrapper">
-                        <p class="title title--xs title--primary mtcheck-product__price">126 281 <span>&#8381;</span></p>
+                        <p class="text text--md text--primary mtcheck-product__price">126 281 <span>&#8381;</span></p>
                         <button class="btn-reset mtcheck-product__remove" data-action="product-remove" aria-label="Удалить товар из корзины"></button>
                       </div>
                     </div>
                   </article>
                   <article class="mtcheck-product">
-                    <div class="mtcheck-product__column">
-                      <label class="checkbox">
-                        <input type="checkbox" class="visually-hidden checkbox__input">
-                        <span class="checkbox__display"></span>
-                      </label>
+                    <div class="mtcheck-product__left">
                       <div class="mtcheck-product__image">
+                        <label class="checkbox">
+                          <input type="checkbox" class="visually-hidden checkbox__input">
+                          <span class="checkbox__display"></span>
+                        </label>
                         <img src="./images/products/product-2.png" alt="Изображение товара">
                       </div>
                       <div class="mtcheck-product__info">
                         <p class="text text--md text--primary mtcheck-product__name">Робот-пылесос PVCR 0726W (POLARIS), Polaris бежевый цвет официальный магазин Поларис</p>
                         <div class="mtcheck-product__properties">
-                          <span class="text text--xs text--secondary mtcheck-product__brand">Цвет: бежевый</span>
-                          <span class="text text--xs text--secondary mtcheck-product__brand">Комплект: полный</span>
-                          <span class="text text--xs text--secondary mtcheck-product__brand">Размер: 28</span>
-                          <span class="text text--xs text--secondary mtcheck-product__brand">Состояние: новый</span>
-                          <span class="text text--xs text--secondary mtcheck-product__brand">Цвет рамки: золотой</span>
+                          <span class="text text--xs text--secondary mtcheck-product__property">Цвет: бежевый</span>
+                          <span class="text text--xs text--secondary mtcheck-product__property">Комплект: полный</span>
+                          <span class="text text--xs text--secondary mtcheck-product__property">Состояние: новый</span>
+                          <span class="text text--xs text--secondary mtcheck-product__property">Размер: 28</span>
+                          <span class="text text--xs text--secondary mtcheck-product__property">Цвет рамки: золотой</span>
                         </div>
                       </div>
                     </div>
-                    <div class="mtcheck-product__column">
+                    <div class="mtcheck-product__right">
                       <div class="mtcheck-product__count">
                         <div class="counter">
                           <input type="number" value="2" min="1" max="50" class="counter__display">
@@ -99,20 +99,20 @@
                         </div>
                       </div>
                       <div class="mtcheck-product__wrapper">
-                        <p class="title title--xs title--primary mtcheck-product__price">681 <span>&#8381;</span></p>
+                        <p class="text text--md text--primary mtcheck-product__price">681 <span>&#8381;</span></p>
                         <button class="btn-reset mtcheck-product__remove" data-action="product-remove" aria-label="Удалить товар из корзины"></button>
                       </div>
                     </div>
                   </article>
                   <article class="mtcheck-product mtcheck-product--deleted">
-                    <div class="mtcheck-product__column">
+                    <div class="mtcheck-product__left">
                       <div></div>
                       <div></div>
                       <div class="mtcheck-product__info">
                         <p class="text mtcheck-product__name">Газобетонный стеновой блок D500 600x300x250</p>
                       </div>
                     </div>
-                    <div class="mtcheck-product__column">
+                    <div class="mtcheck-product__right">
                       <button class="btn-reset link mtcheck-product__restore" data-action="product-restore">восстановить</button>
                       <div class="mtcheck-product__wrapper">
                         <button class="btn-reset mtcheck-product__remove" data-action="product-remove" aria-label="Удалить товар из корзины"></button>
@@ -120,19 +120,19 @@
                     </div>
                   </article>
                   <article class="mtcheck-product">
-                    <div class="mtcheck-product__column">
-                      <label class="checkbox">
-                        <input type="checkbox" class="visually-hidden checkbox__input" checked>
-                        <span class="checkbox__display"></span>
-                      </label>
+                    <div class="mtcheck-product__left">
                       <div class="mtcheck-product__image">
+                        <label class="checkbox">
+                          <input type="checkbox" class="visually-hidden checkbox__input" checked>
+                          <span class="checkbox__display"></span>
+                        </label>
                         <img src="./images/products/product-3.png" alt="Изображение товара">
                       </div>
                       <div class="mtcheck-product__info">
                         <p class="text text--md text--primary mtcheck-product__name">Газобетонный стеновой блок D400 600x300x250</p>
                       </div>
                     </div>
-                    <div class="mtcheck-product__column">
+                    <div class="mtcheck-product__right">
                       <div class="mtcheck-product__count">
                         <div class="counter">
                           <input type="number" value="899" min="1" max="1000" class="counter__display">
@@ -141,7 +141,7 @@
                         </div>
                       </div>
                       <div class="mtcheck-product__wrapper">
-                        <p class="title title--xs title--primary mtcheck-product__price">2 681 <span>&#8381;</span></p>
+                        <p class="text text--md text--primary mtcheck-product__price">2 681 <span>&#8381;</span></p>
                         <button class="btn-reset mtcheck-product__remove" data-action="product-remove" aria-label="Удалить товар из корзины"></button>
                       </div>
                     </div>
