@@ -29,8 +29,8 @@
                   <span class="checkbox__text">Выбрать все (2)</span>
                 </label>
                 <div class="mtcheck-products__actions">
-                  <button class="btn-reset link mtcheck-products__action" id="remove-everything">удалить из корзины</button>
-                  <button class="btn-reset link mtcheck-products__action" id="buy-everything">заказать в 1 клик</button>
+                  <button class="btn-reset link text text--xs mtcheck-products__action" id="remove-everything">удалить из корзины</button>
+                  <button class="btn-reset link text text--xs mtcheck-products__action" id="buy-everything">заказать в 1 клик</button>
                 </div>
                 <div class="mtcheck-products__info">
                   <span class="text text--xs">Кол-во</span>
@@ -160,11 +160,9 @@
                   <button class="btn-reset info-btn" aria-label="Открыть модальное окно" data-modal></button>
                   <button class="btn-reset btn btn--primary mtcheck-user__buy">Заказ без регистрации</button>
                 </div>
-                <div class="mtcheck-user__column">
-                  <span class="text text--sm text--thindly mtcheck-user__status">
-                    Уже зарегистрированы?
-                    <button class="btn-reset link mtcheck-user__status-change">(войти в свой аккаунт)</button>
-                  </span>
+                <div class="mtcheck-user__status">
+                  <span class="text text--sm text--thindly mtcheck-user__status-current" data-tab-status="Впервые на сайте?">Уже зарегистрированы?</span>
+                  <button class="btn-reset link text text--sm mtcheck-user__status-change" data-tab-handler="(зарегистрироваться)">(войти в свой аккаунт)</button>
                 </div>
               </div>
               <p class="text text--sm text--thindly mtcheck-user__description">
@@ -172,7 +170,7 @@
                 <br>
                 В зависимости от вашего выбора могут меняться условия доставки и оплаты.
               </p>
-              <form class="mtcheck-register">
+              <form class="mtcheck-register" data-tab="true">
                 <fieldset class="mtcheck-register__type">
                   <span class="visually-hidden">Тип покупателя</span>
                   <label class="radio">
@@ -251,14 +249,14 @@
                   </label>
                 </div>
               </form>
-              <form class="mtcheck-login" hidden>
+              <form class="mtcheck-login">
                 <fieldset class="mtcheck-login__data">
                   <span class="visually-hidden">Данные покупателя для авторизации</span>
                   <input type="text" class="input" name="login" placeholder="Логин">
                   <input type="password" class="input" name="password" placeholder="Пароль">
                   <input type="submit" class="btn-reset btn btn--primary" value="Войти">
                 </fieldset>
-                <span class="mtcheck-login__forgot">
+                <span class="text text--md mtcheck-login__forgot">
                   Забыл пароль? 
                   <button class="btn-reset link" id="password-reset">(восстановить)</button>
                 </span>
@@ -283,13 +281,13 @@
                   <input type="radio" name="delivery-type" class="visually-hidden radio__input">
                   <span class="radio__display"></span>
                   <span class="radio__text">Фиксированная стоимость доставки</span>
-                  <span class="mtcheck-delivery__type-price">300 &#8381;</span>
+                  <span class="radio__text mtcheck-delivery__type-price">300 &#8381;</span>
                 </label>
                 <label class="radio mtcheck-delivery__type">
                   <input type="radio" name="delivery-type" class="visually-hidden radio__input">
                   <span class="radio__display"></span>
                   <span class="radio__text">Доставка почтой России</span>
-                  <span class="mtcheck-delivery__type-price">600 &#8381;</span>
+                  <span class="radio__text mtcheck-delivery__type-price">600 &#8381;</span>
                 </label>
               </div>
               <p class="message message--danger">для бесплатной доставки добавьте товаров на 5600 &#8381;</p>
