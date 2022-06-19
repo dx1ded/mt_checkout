@@ -24,12 +24,12 @@
             <div class="mtcheck-products">
               <div class="mtcheck-products__head">
                 <label class="checkbox">
-                  <input type="checkbox" class="checkbox__input" checked>
+                  <input type="checkbox" class="checkbox__input" id="select-all">
                   <span class="checkbox__display"></span>
-                  <span class="checkbox__text">Выбрать все (2)</span>
+                  <span class="checkbox__text"></span>
                 </label>
                 <div class="mtcheck-products__actions">
-                  <button class="btn-reset link text text--xs mtcheck-products__action" id="remove-everything">удалить из корзины</button>
+                  <button class="btn-reset link text text--xs mtcheck-products__action" id="delete-all">удалить из корзины</button>
                   <button class="btn-reset link text text--xs mtcheck-products__action" id="buy-everything">заказать в 1 клик</button>
                 </div>
                 <div class="mtcheck-products__info">
@@ -38,113 +38,7 @@
                 </div>
               </div>
               <div class="card mtcheck-products__body">
-                <div class="mtcheck-products__list">
-                  <article class="mtcheck-product">
-                    <div class="mtcheck-product__left">
-                      <label class="checkbox">
-                        <input type="checkbox" class="visually-hidden checkbox__input" checked>
-                        <span class="checkbox__display"></span>
-                      </label>
-                      <div class="mtcheck-product__image">
-                        <img src="./images/products/product-1.png" alt="Изображение товара">
-                      </div>
-                      <div class="mtcheck-product__info">
-                        <p class="text text--md text--primary mtcheck-product__name">Таймер кухонный, электронный, Baldr</p>
-                        <div class="mtcheck-product__properties">
-                          <span class="text text--xs text--secondary mtcheck-product__property">Бренд: Baldr</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="mtcheck-product__right">
-                      <div class="mtcheck-product__count">
-                        <div class="counter">
-                          <input type="number" value="1" min="1" max="50" class="counter__display">
-                          <input type="button" value="-" class="btn-reset counter__action counter__action--decrement">
-                          <input type="button" value="+" class="btn-reset counter__action counter__action--increment">
-                        </div>
-                        <span class="text text--xs mtcheck-product__sign">нет в выбранном количестве</span>
-                      </div>
-                      <div class="mtcheck-product__wrapper">
-                        <p class="text text--md text--primary mtcheck-product__price">126 281 <span>&#8381;</span></p>
-                        <button class="btn-reset mtcheck-product__remove" data-action="product-remove" aria-label="Удалить товар из корзины"></button>
-                      </div>
-                    </div>
-                  </article>
-                  <article class="mtcheck-product">
-                    <div class="mtcheck-product__left">
-                      <label class="checkbox">
-                        <input type="checkbox" class="visually-hidden checkbox__input">
-                        <span class="checkbox__display"></span>
-                      </label>
-                      <div class="mtcheck-product__image">
-                        <img src="./images/products/product-2.png" alt="Изображение товара">
-                      </div>
-                      <div class="mtcheck-product__info">
-                        <p class="text text--md text--primary mtcheck-product__name">Робот-пылесос PVCR 0726W (POLARIS), Polaris бежевый цвет официальный магазин Поларис</p>
-                        <div class="mtcheck-product__properties">
-                          <span class="text text--xs text--secondary mtcheck-product__property">Цвет: бежевый</span>
-                          <span class="text text--xs text--secondary mtcheck-product__property">Комплект: полный</span>
-                          <span class="text text--xs text--secondary mtcheck-product__property">Состояние: новый</span>
-                          <span class="text text--xs text--secondary mtcheck-product__property">Размер: 28</span>
-                          <span class="text text--xs text--secondary mtcheck-product__property">Цвет рамки: золотой</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="mtcheck-product__right">
-                      <div class="mtcheck-product__count">
-                        <div class="counter">
-                          <input type="number" value="2" min="1" max="50" class="counter__display">
-                          <input type="button" value="-" class="btn-reset counter__action counter__action--decrement">
-                          <input type="button" value="+" class="btn-reset counter__action counter__action--increment">
-                        </div>
-                      </div>
-                      <div class="mtcheck-product__wrapper">
-                        <p class="text text--md text--primary mtcheck-product__price">681 <span>&#8381;</span></p>
-                        <button class="btn-reset mtcheck-product__remove" data-action="product-remove" aria-label="Удалить товар из корзины"></button>
-                      </div>
-                    </div>
-                  </article>
-                  <article class="mtcheck-product mtcheck-product--deleted">
-                    <div class="mtcheck-product__left">
-                      <div class="mtcheck-product__info">
-                        <p class="text mtcheck-product__name">Газобетонный стеновой блок D500 600x300x250</p>
-                      </div>
-                    </div>
-                    <div class="mtcheck-product__right">
-                      <button class="btn-reset link mtcheck-product__restore" data-action="product-restore">восстановить</button>
-                      <div class="mtcheck-product__wrapper">
-                        <button class="btn-reset mtcheck-product__remove" data-action="product-remove" aria-label="Удалить товар из корзины"></button>
-                      </div>
-                    </div>
-                  </article>
-                  <article class="mtcheck-product">
-                    <div class="mtcheck-product__left">
-                      <label class="checkbox">
-                        <input type="checkbox" class="visually-hidden checkbox__input" checked>
-                        <span class="checkbox__display"></span>
-                      </label>
-                      <div class="mtcheck-product__image">
-                        <img src="./images/products/product-3.png" alt="Изображение товара">
-                      </div>
-                      <div class="mtcheck-product__info">
-                        <p class="text text--md text--primary mtcheck-product__name">Газобетонный стеновой блок D400 600x300x250</p>
-                      </div>
-                    </div>
-                    <div class="mtcheck-product__right">
-                      <div class="mtcheck-product__count">
-                        <div class="counter">
-                          <input type="number" value="899" min="1" max="1000" class="counter__display">
-                          <input type="button" value="-" class="btn-reset counter__action counter__action--decrement">
-                          <input type="button" value="+" class="btn-reset counter__action counter__action--increment">
-                        </div>
-                      </div>
-                      <div class="mtcheck-product__wrapper">
-                        <p class="text text--md text--primary mtcheck-product__price">2 681 <span>&#8381;</span></p>
-                        <button class="btn-reset mtcheck-product__remove" data-action="product-remove" aria-label="Удалить товар из корзины"></button>
-                      </div>
-                    </div>
-                  </article>
-                </div>
+                <div class="mtcheck-products__list"></div>
                 <div class="mtcheck-products__summary">
                   <p class="title title--sm title--primary mtcheck-products__count">Товаров, 3 шт.</p>
                   <p class="title title--md title--primary mtcheck-products__sum">5 128 785 <span>&#8381;</span></p>
@@ -236,12 +130,12 @@
                 </div>
                 <div class="mtcheck-register__permits">
                   <label class="checkbox checkbox--sm checkbox--gray">
-                    <input type="checkbox" class="visually-hidden checkbox__input" checked>
+                    <input type="checkbox" class="visually-hidden checkbox__input">
                     <span class="checkbox__display"></span>
                     <span class="checkbox__text">подписаться на новостную рассылку</span>
                   </label>
                   <label class="checkbox checkbox--sm checkbox--gray">
-                    <input type="checkbox" class="visually-hidden checkbox__input" checked>
+                    <input type="checkbox" class="visually-hidden checkbox__input">
                     <span class="checkbox__display"></span>
                     <span class="checkbox__text">отправляя данные я даю согласие на обработку персональной информации согласно <a href="#">политики конфиденциальности</a> данного сайта</span>
                   </label>
@@ -388,7 +282,7 @@
                     <span class="link text text--sm">оформить по телефону</span>
                   </button>
                   <label class="checkbox checkbox--sm checkbox--gray">
-                    <input type="checkbox" class="visually-hidden checkbox__input" checked>
+                    <input type="checkbox" class="visually-hidden checkbox__input">
                     <span class="checkbox__display"></span>
                     <span class="checkbox__text">
                       согласен с политикой <a href="#">возврата товара</a> и <a href="#">правилами</a> использования сайта
@@ -433,7 +327,7 @@
                 <span class="link text text--sm">Оформить по телефону</span>
               </button>
               <label class="checkbox checkbox--sm checkbox--gray">
-                <input type="checkbox" class="visually-hidden checkbox__input" checked>
+                <input type="checkbox" class="visually-hidden checkbox__input">
                 <span class="checkbox__display"></span>
                 <span class="checkbox__text">
                   согласен с политикой <a href="#">возврата товара</a> и <a href="#">правилами</a> использования сайта
