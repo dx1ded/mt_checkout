@@ -21,7 +21,7 @@
 
   /* Sizes */
 
-  --design-mw: 954px;
+  --design-mw: 914px;
   --container-horizontal-offset: 20px;
   --mw: calc(var(--design-mw) + var(--container-horizontal-offset) * 2);
 }
@@ -82,6 +82,7 @@ body {
 }
 
 .btn-reset {
+  cursor: pointer;
   background-color: transparent;
   border: none;
   outline: none;
@@ -167,6 +168,7 @@ fieldset {
 .radio {
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 
 .checkbox__input,
@@ -285,6 +287,13 @@ fieldset {
   color: var(--color-dark);
   text-align: center;
   border: none;
+  outline: none;
+  appearance: textfield;
+}
+
+.counter__display::-webkit-outer-spin-button,
+.counter__display::-webkit-inner-spin-button {
+  appearance: none;
 }
 
 .counter__action {
@@ -350,6 +359,7 @@ fieldset {
 
 .select {
   position: relative;
+  cursor: pointer;
 }
 
 .select--opened .select__display {
@@ -398,6 +408,7 @@ fieldset {
   overflow-y: auto;
   visibility: hidden;
   background-color: #f5f6f7;
+  border: 1px solid var(--color-alto);
   border-radius: 0 0 10px 10px;
   opacity: 0;
   transition: visibility 0.3s ease-in-out, opacity 0.3s ease-in-out;
@@ -423,6 +434,7 @@ fieldset {
   align-items: center;
   max-width: 282px;
   padding: 12px 20px;
+  margin-top: 29px;
   margin-left: calc(var(--container-horizontal-offset) * -1);
   font-size: 14px;
   line-height: 1.32;
@@ -484,17 +496,23 @@ fieldset {
   flex-direction: column;
   align-items: flex-start;
   padding-left: 34px;
+  margin: 0 -10px -4px 0;
 }
 
-.mtcheck-products__action:not(:last-child) {
-  margin-bottom: 4px;
+.mtcheck-products__action {
+  margin: 0 10px 4px 0;
 }
 
 .mtcheck-products__info {
   display: none;
+  flex-basis: 293px;
+  justify-content: space-between;
+  padding: 0 25px;
+  margin-left: auto;
 }
 
 .mtcheck-product {
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -520,8 +538,8 @@ fieldset {
 
 .mtcheck-product .checkbox {
   position: absolute;
-  top: 6px;
-  left: -8px;
+  top: 24px;
+  left: -12px;
 }
 
 .mtcheck-product .checkbox__display {
@@ -530,7 +548,6 @@ fieldset {
 }
 
 .mtcheck-product__image {
-  position: relative;
   display: flex;
   flex: 0 0 80px;
   align-items: center;
@@ -581,6 +598,10 @@ fieldset {
   font-weight: 400;
 }
 
+.mtcheck-product__restore {
+  margin-right: 18px;
+}
+
 .mtcheck-product__remove {
   position: relative;
   width: 13px;
@@ -621,35 +642,40 @@ fieldset {
   font-weight: 400;
 }
 
+.mtcheck-product--deleted .mtcheck-product__info {
+  color: var(--color-silver-sand);
+  text-decoration: line-through;
+}
+
 /* mtcheck-user */
 
 .mtcheck-user {
-  padding: 24px var(--container-horizontal-offset) 30px;
+  padding: 34px var(--container-horizontal-offset) 30px;
 }
 
-.mtcheck-user__head,
+.mtcheck-user__head {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
 .mtcheck-user__column {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  margin: 0 -12px 5px 0;
 }
 
-.mtcheck-user__head {
-  margin-bottom: 20px;
-}
-
-.mtcheck-user__title {
-  margin-right: 12px;
+.mtcheck-user__title,
+.mtcheck-user .info-btn,
+.mtcheck-user__buy {
+  margin: 0 12px 12px 0;
 }
 
 .mtcheck-user__buy {
   padding: 9px 18px;
-  margin-top: 12px;
   font-size: 14px;
-}
-
-.mtcheck-user__status {
-  margin-top: 17px;
 }
 
 .mtcheck-user__description {
@@ -724,18 +750,20 @@ fieldset {
 }
 
 .mtcheck-login [type="submit"] {
-  padding: 12px 0;
+  padding: 14px 0;
   border-radius: 10px;
 }
 
-/* mtcheck-delivery */
-
+.mtcheck-pay,
 .mtcheck-delivery {
   padding: 35px var(--container-horizontal-offset) 38px;
 }
 
+/* mtcheck-delivery */
+
 .mtcheck-delivery__head {
   display: flex;
+  align-items: center;
   margin-bottom: 20px;
 }
 
@@ -745,10 +773,6 @@ fieldset {
 
 .mtcheck-delivery__description {
   margin-bottom: 23px;
-}
-
-.mtcheck-delivery__types {
-  margin-bottom: 29px;
 }
 
 .mtcheck-delivery__type {
@@ -773,10 +797,6 @@ fieldset {
 
 /* mtcheck-pay */
 
-.mtcheck-pay {
-  padding: 36px var(--container-horizontal-offset) 34px;
-}
-
 .mtcheck-pay__head {
   display: flex;
   align-items: center;
@@ -796,7 +816,7 @@ fieldset {
 }
 
 .mtcheck-pay__type:not(:last-child) {
-  margin-bottom: 14px;
+  margin-bottom: 20px;
 }
 
 /* mtcheck-confirm */
@@ -887,7 +907,11 @@ fieldset {
 }
 
 .mtcheck-table__item:not(:last-child) {
-  margin-bottom: 10px;
+  margin-bottom: 14px;
+}
+
+.mtcheck-table__item.mtcheck-table__item--margin {
+  margin-bottom: 28px;
 }
 
 /* mtcheck-total */
@@ -896,7 +920,11 @@ fieldset {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 25px 0 32px;
+  margin-top: 25px;
+}
+
+.mtcheck-total__sum {
+  font-weight: 700;
 }
 
 .mtcheck-total__sum span {
@@ -910,6 +938,7 @@ fieldset {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 32px;
 }
 
 .mtcheck-submit__button {
@@ -923,10 +952,6 @@ fieldset {
   display: flex;
   align-items: center;
   margin-bottom: 25px;
-}
-
-.mtcheck-submit__by-phone span {
-  font-size: 14px;
 }
 
 .mtcheck-submit__by-phone::before {
@@ -947,5 +972,870 @@ fieldset {
 /* mtcheck-summary */
 
 .mtcheck-summary {
+  position: sticky;
+  top: 30px;
   display: none;
+  padding: 30px 26px;
+  margin-top: 53px;
+  background-color: var(--color-light);
+  border-radius: 6px;
+  box-shadow: 0 5px 20px rgb(0 0 0 / 10%);
+}
+
+.mtcheck-summary__head {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.mtcheck-summary__title {
+  margin-right: 8px;
+  font-size: 27px;
+}
+
+.mtcheck-summary__sum {
+  margin-left: auto;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.mtcheck-summary__sum span {
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.mtcheck-summary .mtcheck-table__item-name {
+  display: flex;
+  align-items: center;
+}
+
+.mtcheck-summary .mtcheck-table__item-name span {
+  display: inline-block;
+  width: 202px;
+  margin-left: 6px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.mtcheck-summary .mtcheck-table__item-value {
+  justify-content: flex-end;
+}
+
+.mtcheck-summary .mtcheck-table__item-value::before {
+  display: none;
+}
+
+.mtcheck-summary .mtcheck-submit {
+  flex-direction: column;
+  align-items: center;
+}
+
+.mtcheck-summary .mtcheck-submit__button {
+  order: 0;
+  max-width: initial;
+  margin-bottom: 20px;
+}
+
+.mtcheck-summary .mtcheck-submit__by-phone {
+  order: 1;
+  margin: 0 0 25px;
+}
+
+.mtcheck-summary .mtcheck-submit .checkbox {
+  order: 2;
+  margin: 0 auto;
+}
+
+.mtcheck-summary .mtcheck-submit .checkbox__text {
+  max-width: 315px;
+}
+
+@media (min-width: 375px) {
+  .mtcheck-products__actions {
+    flex-direction: row;
+  }
+}
+
+@media (min-width: 425px) {
+  :root {
+    --container-horizontal-offset: 35px;
+  }
+
+  .mtcheck-delivery__type .radio__text,
+  .mtcheck-pay__type .radio__text {
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 768px) {
+  .title--xl {
+    font-size: 25px;
+  }
+
+  .title--md {
+    font-size: 20px;
+  }
+
+  .title--sm {
+    font-size: 17px;
+  }
+
+  .text--md {
+    font-size: 16px;
+  }
+
+  .text--sm {
+    font-size: 15px;
+    line-height: 1.53;
+  }
+
+  .text--xs {
+    font-size: 14px;
+  }
+
+  .checkbox__text {
+    font-size: 14px;
+  }
+
+  .radio__text {
+    font-size: 16px;
+  }
+
+  .counter {
+    grid-template-columns: 38px 32px 38px;
+  }
+
+  .counter__action {
+    font-size: 24px;
+  }
+
+  .counter__display {
+    font-size: 14px;
+  }
+
+  .input {
+    padding: 17px 21px;
+    font-size: 16px;
+  }
+
+  .input.input--min {
+    width: 100%;
+  }
+
+  .select__display,
+  .select__item {
+    padding: 17px 21px;
+    font-size: 16px;
+  }
+
+  .textarea {
+    padding: 20px 22px;
+    font-size: 16px;
+  }
+
+  .mtcheck-display {
+    padding: 54px 0 526px;
+  }
+
+  .mtcheck-display__title {
+    margin-bottom: 36px;
+  }
+
+  .mtcheck-products__head {
+    display: flex;
+    margin-bottom: 22px;
+  }
+
+  .mtcheck-products__actions {
+    padding-left: 17px;
+  }
+
+  .mtcheck-products__action {
+    margin: 0 16px 4px 0;
+  }
+
+  .mtcheck-product {
+    flex-wrap: nowrap;
+    align-items: center;
+    padding: 14px 0;
+  }
+
+  .mtcheck-product.mtcheck-product--deleted {
+    padding-left: 117px;
+  }
+
+  .mtcheck-product__left {
+    flex: 0 1 382px;
+    justify-content: flex-start;
+    margin-bottom: 0;
+  }
+
+  .mtcheck-product__wrapper {
+    margin-top: 0;
+  }
+
+  .mtcheck-product__right {
+    flex-basis: 260px;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .mtcheck-product__image {
+    margin-right: 37px;
+  }
+
+  .mtcheck-product__info {
+    flex: 1 1 240px;
+  }
+
+  .mtcheck-product__properties {
+    margin: 0 -9px 0 0;
+  }
+
+  .mtcheck-product__property {
+    margin: 0 9px 0 0;
+  }
+
+  .mtcheck-product__count {
+    position: relative;
+    text-align: center;
+  }
+
+  .mtcheck-product__sign {
+    position: absolute;
+    max-width: 120px;
+    margin-top: 6px;
+    font-size: 13px;
+  }
+
+  .mtcheck-product__price {
+    margin-right: 25px;
+  }
+
+  .mtcheck-product--deleted .mtcheck-product__right {
+    justify-content: flex-end;
+  }
+
+  .mtcheck-products__summary {
+    display: none;
+  }
+
+  .mtcheck-user {
+    padding: 55px var(--container-horizontal-offset) 53px;
+  }
+
+  .mtcheck-user__head {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+  }
+
+  .mtcheck-user__column {
+    margin: 0;
+  }
+
+  .mtcheck-user__title {
+    margin: 0 12px 0 0;
+  }
+
+  .mtcheck-user .info-btn {
+    margin: 0 17px 0 0;
+  }
+
+  .mtcheck-user__buy {
+    margin: 0;
+  }
+
+  .mtcheck-user__status {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .mtcheck-user__description {
+    margin-bottom: 26px;
+  }
+
+  .mtcheck-register__data {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px 13px;
+    margin-bottom: 32px;
+  }
+
+  .mtcheck-register .input:not(:last-child),
+  .mtcheck-register .select {
+    margin-bottom: 0;
+  }
+
+  .mtcheck-register__location {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px 14px;
+    margin-bottom: 23px;
+  }
+
+  .mtcheck-register__password {
+    margin-bottom: 35px;
+  }
+
+  .mtcheck-register__password .text {
+    font-size: 15px;
+  }
+
+  .mtcheck-register__password fieldset {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .mtcheck-login .input:not(:last-child) {
+    margin-bottom: 0;
+  }
+
+  .mtcheck-login__data {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px 13px;
+  }
+
+  .mtcheck-login [type="submit"] {
+    grid-column: span 2;
+    padding: 17px 0;
+  }
+
+  .mtcheck-delivery,
+  .mtcheck-pay {
+    padding: 42px var(--container-horizontal-offset) 45px;
+  }
+
+  .mtcheck-delivery .message {
+    display: none;
+  }
+
+  .mtcheck-pay__head {
+    margin-bottom: 15px;
+  }
+
+  .mtcheck-confirm {
+    padding: 37px var(--container-horizontal-offset) 34px;
+  }
+
+  .mtcheck-confirm__head {
+    margin-bottom: 22px;
+  }
+
+  .mtcheck-offers {
+    margin-bottom: 39px;
+  }
+
+  .mtcheck-offers span {
+    display: inline-block;
+    font-size: 15px;
+  }
+
+  .mtcheck-offers button {
+    padding: 16px 24px;
+  }
+
+  .mtcheck-offers button::after {
+    background-image: none;
+  }
+
+  .mtcheck-offers__coupon {
+    margin-bottom: 18px;
+  }
+
+  .mtcheck-table__item-name {
+    max-width: initial;
+  }
+
+  .mtcheck-table__item-value::before {
+    margin: 0 15px;
+  }
+
+  .mtcheck-table__item.mtcheck-table__item--margin {
+    margin-bottom: 34px;
+  }
+
+  .mtcheck-total__sum span {
+    font-size: 20px;
+  }
+
+  .mtcheck-submit {
+    margin-top: 65px;
+  }
+
+  .mtcheck-submit__button {
+    max-width: 287px;
+  }
+
+  .mtcheck-submit__by-phone {
+    margin-bottom: 37px;
+  }
+
+  .mtcheck-submit .checkbox__display {
+    margin-right: 10px;
+  }
+
+  .mtcheck-submit .checkbox__text {
+    max-width: initial;
+  }
+}
+
+@media (min-width: 830px) {
+  .mtcheck-product__left {
+    flex: 0 1 460px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .title--xl {
+    font-size: 30px;
+  }
+
+  .title--md {
+    font-size: 25px;
+  }
+
+  .title--sm {
+    font-size: 19px;
+  }
+
+  .text--md {
+    font-size: 19px;
+  }
+
+  .text--sm {
+    font-size: 16px;
+  }
+
+  .text--xs {
+    font-size: 15px;
+  }
+
+  .card {
+    border-radius: 6px;
+  }
+
+  .checkbox__display {
+    width: 25px;
+    height: 25px;
+  }
+
+  .checkbox__text {
+    font-size: 15px;
+  }
+
+  .counter {
+    grid-auto-rows: 42px;
+  }
+
+  .counter__display {
+    font-size: 16px;
+  }
+
+  .radio__display {
+    width: 21px;
+    height: 21px;
+    margin-right: 16px;
+  }
+
+  .checkbox--gray .checkbox__text {
+    font-size: 13px;
+  }
+
+  .radio__display::after {
+    width: 7px;
+    height: 7px;
+  }
+
+  .radio__text {
+    font-size: 17px;
+  }
+
+  .input,
+  .select__display,
+  .select__item {
+    font-size: 17px;
+  }
+
+  .textarea {
+    padding: 18px 33px;
+    font-size: 17px;
+  }
+
+  .mtcheck-display {
+    padding: 50px 0 564px;
+  }
+
+  .mtcheck-display__title {
+    margin-bottom: 42px;
+  }
+
+  .mtcheck-display__left {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 48px 58px;
+  }
+
+  .mtcheck-products__actions {
+    padding-left: 47px;
+  }
+
+  .mtcheck-products__info {
+    display: flex;
+  }
+
+  .mtcheck-products__head .checkbox__display {
+    margin-right: 20px;
+  }
+
+  .mtcheck-product {
+    padding: 15px var(--container-horizontal-offset);
+    margin: 0 calc(var(--container-horizontal-offset) * -1);
+  }
+
+  .mtcheck-product__left {
+    flex: 0 1 532px;
+  }
+
+  .mtcheck-product__right {
+    flex-basis: 293px;
+  }
+
+  .mtcheck-product .checkbox {
+    position: static;
+  }
+
+  .mtcheck-product .checkbox__display {
+    margin-right: 30px;
+  }
+
+  .mtcheck-product__properties {
+    margin: 0 -30px -4px 0;
+  }
+
+  .mtcheck-product__property {
+    margin: 0 30px 4px 0;
+  }
+
+  .mtcheck-product__count {
+    position: static;
+  }
+
+  .mtcheck-product__sign {
+    max-width: initial;
+    margin-top: 8px;
+    transform: translateX(-25%);
+  }
+
+  .mtcheck-product.mtcheck-product--deleted {
+    padding-left: calc(172px + var(--container-horizontal-offset));
+  }
+
+  .mtcheck-user {
+    padding: 33px var(--container-horizontal-offset) 43px;
+  }
+
+  .mtcheck-user__head {
+    margin-bottom: 20px;
+  }
+
+  .mtcheck-user .info-btn {
+    margin-right: 26px;
+  }
+
+  .mtcheck-user__buy {
+    font-size: 16px;
+  }
+
+  .mtcheck-user__status {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .mtcheck-user__status-current {
+    margin-right: 9px;
+  }
+
+  .mtcheck-user__description {
+    margin-bottom: 30px;
+  }
+
+  .mtcheck-register__type .radio {
+    margin-right: 62px;
+  }
+
+  .mtcheck-register__data {
+    gap: 19px 26px;
+    margin-bottom: 45px;
+  }
+
+  .mtcheck-register__location {
+    gap: 22px 26px;
+    margin-bottom: 41px;
+  }
+
+  .mtcheck-register__comment {
+    margin-bottom: 45px;
+  }
+
+  .mtcheck-register__password .text {
+    margin-bottom: 18px;
+    font-size: 16px;
+  }
+
+  .mtcheck-register__password fieldset {
+    gap: 26px;
+  }
+
+  .mtcheck-login__data {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .mtcheck-login [type="submit"] {
+    grid-column: span 1;
+  }
+
+  .mtcheck-delivery,
+  .mtcheck-pay {
+    padding: 30px var(--container-horizontal-offset) 45px;
+  }
+
+  .mtcheck-delivery__description,
+  .mtcheck-pay__description {
+    margin-bottom: 32px;
+  }
+
+  .mtcheck-delivery {
+    margin: 0 0 0 calc(var(--container-horizontal-offset) * -1);
+  }
+
+  .mtcheck-pay {
+    margin: 0 calc(var(--container-horizontal-offset) * -1) 0 0;
+  }
+
+  .mtcheck-confirm__head {
+    margin-bottom: 35px;
+  }
+
+  .mtcheck-confirm__row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .mtcheck-offers {
+    flex-basis: 380px;
+    margin-right: 34px;
+  }
+
+  .mtcheck-offers__coupon {
+    margin-bottom: 22px;
+  }
+
+  .mtcheck-info {
+    flex: 1 0 500px;
+  }
+
+  .mtcheck-table__item-name,
+  .mtcheck-table__item-value {
+    font-size: 17px;
+  }
+
+  .mtcheck-table__item.mtcheck-table__item--margin {
+    margin-bottom: 30px;
+  }
+
+  .mtcheck-table__item--margin ~ .mtcheck-table__item p {
+    max-width: min(100%, 260px);
+  }
+
+  .mtcheck-total__title {
+    font-size: 19px;
+  }
+
+  .mtcheck-submit {
+    flex: 1 1 100%;
+    flex-direction: row;
+    margin-top: 50px;
+  }
+
+  .mtcheck-submit .checkbox {
+    order: 0;
+  }
+
+  .mtcheck-submit .checkbox__text {
+    max-width: 269px;
+  }
+
+  .mtcheck-submit__by-phone {
+    order: 1;
+    margin: 0 34px 0 auto;
+  }
+
+  .mtcheck-submit__by-phone::before {
+    width: 24px;
+    height: 24px;
+  }
+
+  .mtcheck-submit__button {
+    order: 2;
+    margin-bottom: 0;
+    font-size: 20px;
+  }
+
+  .mtcheck-products,
+  .mtcheck-user,
+  .mtcheck-confirm {
+    grid-column: span 2;
+  }
+}
+
+@media (min-width: 1366px) {
+  :root {
+    --design-mw: 1154px;
+  }
+
+  .title--xl {
+    font-size: 36px;
+  }
+
+  .mtcheck-display {
+    padding: 66px 0 516px;
+  }
+
+  .mtcheck-display__left {
+    gap: 65px 74px;
+  }
+
+  .mtcheck-product {
+    padding: 26px var(--container-horizontal-offset);
+  }
+
+  .mtcheck-product__name {
+    margin-bottom: 8px;
+  }
+
+  .mtcheck-product__left {
+    flex: 0 1 753px;
+  }
+
+  .mtcheck-register__data,
+  .mtcheck-register__password fieldset {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .mtcheck-login__data {
+    grid-template-columns: 267px 267px 152px;
+  }
+
+  .mtcheck-login [type="submit"] {
+    border-radius: 5px;
+  }
+
+  .mtcheck-delivery .message {
+    display: flex;
+    max-width: 480px;
+    margin-top: 36px;
+    font-size: 16px;
+  }
+
+  .mtcheck-offers {
+    margin-right: 44px;
+  }
+
+  .mtcheck-table__item--margin ~ .mtcheck-table__item p {
+    max-width: initial;
+  }
+
+  .mtcheck-submit .checkbox__text {
+    max-width: 361px;
+  }
+}
+
+@media (min-width: 1600px) {
+  :root {
+    --design-mw: 1475px;
+  }
+
+  .title--xl {
+    font-size: 40px;
+  }
+
+  .mtcheck-display {
+    padding: 76px 0 285px;
+  }
+
+  .mtcheck-display__title {
+    margin-bottom: 57px;
+  }
+
+  .mtcheck-display__wrapper {
+    display: grid;
+    grid-template-columns: 919px 1fr;
+    gap: calc(65px + var(--container-horizontal-offset));
+    align-items: start;
+  }
+
+  .mtcheck-display__left {
+    gap: 60px 58px;
+  }
+
+  .mtcheck-product__left {
+    flex: 0 1 532px;
+  }
+
+  .mtcheck-register__data,
+  .mtcheck-register__password fieldset {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .mtcheck-delivery .message,
+  .mtcheck-confirm .mtcheck-submit {
+    display: none;
+  }
+
+  .mtcheck-table__item--margin ~ .mtcheck-table__item p {
+    max-width: min(100%, 248px);
+  }
+
+  .mtcheck-summary {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media (min-width: 1920px) {
+  :root {
+    --design-mw: 1704px;
+  }
+
+  .title--xl {
+    font-size: 44px;
+  }
+
+  .mtcheck-display {
+    padding: 76px 0 198px;
+  }
+
+  .mtcheck-display__wrapper {
+    grid-template-columns: 1179px 1fr;
+  }
+
+  .mtcheck-product__left {
+    flex: 0 1 728px;
+  }
+
+  .mtcheck-register__data,
+  .mtcheck-register__password fieldset {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .mtcheck-delivery .message {
+    display: flex;
+  }
 }

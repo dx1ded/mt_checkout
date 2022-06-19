@@ -33,19 +33,19 @@
                   <button class="btn-reset link text text--xs mtcheck-products__action" id="buy-everything">заказать в 1 клик</button>
                 </div>
                 <div class="mtcheck-products__info">
-                  <span class="text text--xs">Кол-во</span>
-                  <span class="text text--xs">Сумма</span>
+                  <span class="text text--xs text--thindly">Кол-во</span>
+                  <span class="text text--xs text--thindly">Сумма</span>
                 </div>
               </div>
               <div class="card mtcheck-products__body">
                 <div class="mtcheck-products__list">
                   <article class="mtcheck-product">
                     <div class="mtcheck-product__left">
+                      <label class="checkbox">
+                        <input type="checkbox" class="visually-hidden checkbox__input" checked>
+                        <span class="checkbox__display"></span>
+                      </label>
                       <div class="mtcheck-product__image">
-                        <label class="checkbox">
-                          <input type="checkbox" class="visually-hidden checkbox__input" checked>
-                          <span class="checkbox__display"></span>
-                        </label>
                         <img src="./images/products/product-1.png" alt="Изображение товара">
                       </div>
                       <div class="mtcheck-product__info">
@@ -72,11 +72,11 @@
                   </article>
                   <article class="mtcheck-product">
                     <div class="mtcheck-product__left">
+                      <label class="checkbox">
+                        <input type="checkbox" class="visually-hidden checkbox__input">
+                        <span class="checkbox__display"></span>
+                      </label>
                       <div class="mtcheck-product__image">
-                        <label class="checkbox">
-                          <input type="checkbox" class="visually-hidden checkbox__input">
-                          <span class="checkbox__display"></span>
-                        </label>
                         <img src="./images/products/product-2.png" alt="Изображение товара">
                       </div>
                       <div class="mtcheck-product__info">
@@ -106,8 +106,6 @@
                   </article>
                   <article class="mtcheck-product mtcheck-product--deleted">
                     <div class="mtcheck-product__left">
-                      <div></div>
-                      <div></div>
                       <div class="mtcheck-product__info">
                         <p class="text mtcheck-product__name">Газобетонный стеновой блок D500 600x300x250</p>
                       </div>
@@ -121,11 +119,11 @@
                   </article>
                   <article class="mtcheck-product">
                     <div class="mtcheck-product__left">
+                      <label class="checkbox">
+                        <input type="checkbox" class="visually-hidden checkbox__input" checked>
+                        <span class="checkbox__display"></span>
+                      </label>
                       <div class="mtcheck-product__image">
-                        <label class="checkbox">
-                          <input type="checkbox" class="visually-hidden checkbox__input" checked>
-                          <span class="checkbox__display"></span>
-                        </label>
                         <img src="./images/products/product-3.png" alt="Изображение товара">
                       </div>
                       <div class="mtcheck-product__info">
@@ -249,14 +247,14 @@
                   </label>
                 </div>
               </form>
-              <form class="mtcheck-login">
+              <form class="mtcheck-login" data-tab>
                 <fieldset class="mtcheck-login__data">
                   <span class="visually-hidden">Данные покупателя для авторизации</span>
                   <input type="text" class="input" name="login" placeholder="Логин">
                   <input type="password" class="input" name="password" placeholder="Пароль">
                   <input type="submit" class="btn-reset btn btn--primary" value="Войти">
                 </fieldset>
-                <span class="text text--md mtcheck-login__forgot">
+                <span class="text text--sm mtcheck-login__forgot">
                   Забыл пароль? 
                   <button class="btn-reset link" id="password-reset">(восстановить)</button>
                 </span>
@@ -383,28 +381,28 @@
                     <p class="title title--sm title--primary mtcheck-total__title">Итого</p>
                     <p class="title title--md title--primary mtcheck-total__sum">6 137 681 <span>&#8381;</span></p>
                   </div>
-                  <div class="mtcheck-submit">
-                    <button class="btn-reset btn btn--primary mtcheck-submit__button">Отправить заказ</button>
-                    <button class="btn-reset mtcheck-submit__by-phone">
-                      <span class="link">оформить по телефону</span>
-                    </button>
-                    <label class="checkbox checkbox--sm checkbox--gray">
-                      <input type="checkbox" class="visually-hidden checkbox__input" checked>
-                      <span class="checkbox__display"></span>
-                      <span class="checkbox__text">
-                        согласен с политикой <a href="#">возврата товара</a> и <a href="#">правилами</a> использования сайта
-                      </span>
-                    </label>
-                  </div>
+                </div>
+                <div class="mtcheck-submit">
+                  <button class="btn-reset btn btn--primary mtcheck-submit__button">Отправить заказ</button>
+                  <button class="btn-reset mtcheck-submit__by-phone">
+                    <span class="link text text--sm">оформить по телефону</span>
+                  </button>
+                  <label class="checkbox checkbox--sm checkbox--gray">
+                    <input type="checkbox" class="visually-hidden checkbox__input" checked>
+                    <span class="checkbox__display"></span>
+                    <span class="checkbox__text">
+                      согласен с политикой <a href="#">возврата товара</a> и <a href="#">правилами</a> использования сайта
+                    </span>
+                  </label>
                 </div>
               </div>
             </div>
           </div>
           <div class="mtcheck-summary">
             <div class="mtcheck-summary__head">
-              <p class="title title--l title--primary">Ваш заказ</p>
+              <p class="title title--primary mtcheck-summary__title">Ваш заказ</p>
               <button class="btn-reset info-btn" aria-label="Открыть модальное окно" data-modal></button>
-              <p class="title mtcheck-summary__sum">6 137 681 <span>&#8381;</span></p>
+              <p class="title title--primary mtcheck-summary__sum">6 137 681 <span>&#8381;</span></p>
             </div>
             <div class="mtcheck-table">
               <div class="mtcheck-table__item">
@@ -431,7 +429,9 @@
             </div>
             <div class="mtcheck-submit">
               <button class="btn-reset btn btn--primary mtcheck-submit__button">Отправить заказ</button>
-              <button class="btn-reset link mtcheck-submit__by-phone">Оформить по телефону</button>
+              <button class="btn-reset mtcheck-submit__by-phone">
+                <span class="link text text--sm">Оформить по телефону</span>
+              </button>
               <label class="checkbox checkbox--sm checkbox--gray">
                 <input type="checkbox" class="visually-hidden checkbox__input" checked>
                 <span class="checkbox__display"></span>
