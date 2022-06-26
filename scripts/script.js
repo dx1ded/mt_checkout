@@ -15,11 +15,11 @@ const productMarkup = ({ id, isDeleted, name, imageUrl, properties, count, maxCo
             <input type="checkbox" class="visually-hidden checkbox__input">
             <span class="checkbox__display"></span>
           </label>
-          <div class="mtcheck-product__image">
+          <a href="#" class="mtcheck-product__image">
             <img src="${imageUrl}" alt="Изображение товара">
-          </div>
+          </a>
           <div class="mtcheck-product__info">
-            <p class="text text--md text--primary mtcheck-product__name">${name}</p>
+            <a href="#" class="text text--md text--primary mtcheck-product__name">${name}</a>
             <div class="mtcheck-product__properties">
               ${properties
                 ? properties.map(({ key, value }) => (`

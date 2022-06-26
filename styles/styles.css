@@ -14,6 +14,7 @@
   --color-silver-sand: #bec2c5;
   --color-alto: #e0e0e0;
   --color-primary: #80a584;
+  --color-primary-hover: #6c866e;
   --color-secondary: #fc6904;
   --color-thindly: #7099b9;
   --color-scorpion: #606060;
@@ -57,12 +58,13 @@
 
 /* Default styles */
 
-body {
-  font-family: SegoeUI, sans-serif;
+.mtcheck-body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   background-color: var(--color-light);
 }
 
-.container {
+.mtcheck-container {
   max-width: var(--mw);
   padding: 0 var(--container-horizontal-offset);
   margin: 0 auto;
@@ -254,6 +256,7 @@ fieldset {
 
 .radio__text {
   font-size: 15px;
+  line-height: 1.26;
   color: var(--color-dark);
   transition: color 0.3s ease-in-out;
 }
@@ -316,21 +319,23 @@ fieldset {
   width: 22px;
   height: 22px;
   background-image: url("../images/info.svg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 10px 10px;
-  border: 2px solid var(--color-thindly);
-  border-radius: 100%;
+  background-size: 100% 100%;
+  transform: translateY(3px);
 }
 
 .btn {
   display: inline-block;
   border-radius: 5px;
+  transition: background-color 0.3s ease-in-out;
 }
 
 .btn--primary {
   color: var(--color-light);
   background-color: var(--color-primary);
+}
+
+.btn--primary:hover {
+  background-color: var(--color-primary-hover);
 }
 
 .card {
@@ -343,11 +348,16 @@ fieldset {
 .textarea {
   padding: 15px;
   font-size: 15px;
-  color: #635e5e;
+  color: var(--color-dark);
   background-color: #f5f6f7;
   border: none;
   border-radius: 10px;
   outline: none;
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: #635e5e;
 }
 
 .textarea {
@@ -404,29 +414,23 @@ fieldset {
   bottom: 0;
   z-index: 100;
   width: 100%;
-  height: 200px;
+  height: 400px;
   overflow-y: auto;
   visibility: hidden;
-  background-color: #f5f6f7;
-  border: 1px solid var(--color-alto);
-  border-radius: 0 0 10px 10px;
+  background-color: var(--color-light);
   opacity: 0;
   transition: visibility 0.3s ease-in-out, opacity 0.3s ease-in-out;
   transform: translateY(100%);
 }
 
 .select__item {
-  padding: 15px;
-  font-size: 15px;
+  padding: 13px;
+  font-size: 13px;
   color: var(--color-dark);
 }
 
 .select__item--active {
   background-color: var(--color-alto);
-}
-
-.select__item:not(:last-child) {
-  border-bottom: 1px solid var(--color-alto);
 }
 
 .message--danger {
@@ -445,6 +449,7 @@ fieldset {
 
 .message--danger::before {
   display: inline-block;
+  flex-shrink: 0;
   width: 30px;
   height: 30px;
   margin-right: 10px;
@@ -571,7 +576,9 @@ fieldset {
 }
 
 .mtcheck-product__name {
+  display: inline-block;
   margin-bottom: 5px;
+  text-decoration: none;
 }
 
 .mtcheck-product__properties {
@@ -608,30 +615,15 @@ fieldset {
 
 .mtcheck-product__restore {
   margin-right: 18px;
+  font-size: 14px;
 }
 
 .mtcheck-product__remove {
-  position: relative;
   width: 13px;
   height: 13px;
   cursor: pointer;
-  transform: rotate(45deg);
-}
-
-.mtcheck-product__remove::before,
-.mtcheck-product__remove::after {
-  position: absolute;
-  top: 50%;
-  display: block;
-  width: 100%;
-  height: 3px;
-  content: "";
-  background-color: var(--color-cararra);
-  transform: translateY(-50%);
-}
-
-.mtcheck-product__remove::after {
-  transform: translateY(-50%) rotate(90deg);
+  background-image: url("../images/cross.svg");
+  background-size: 100% 100%;
 }
 
 .mtcheck-products__summary {
@@ -893,7 +885,7 @@ fieldset {
 }
 
 .mtcheck-table__item-name {
-  max-width: min(100%, 185px);
+  max-width: initial;
 }
 
 .mtcheck-table__item-name span {
@@ -902,16 +894,18 @@ fieldset {
 
 .mtcheck-table__item-value {
   display: flex;
-  flex: 1;
-  align-items: center;
+  flex: 1 0;
+  align-items: flex-end;
+  white-space: pre;
 }
 
 .mtcheck-table__item-value::before {
   display: inline-block;
   flex: 1;
+  min-width: 20px;
   margin: 0 6px;
   content: "";
-  border-bottom: 2px dotted var(--color-cararra);
+  border-bottom: 1px dotted var(--color-cararra);
 }
 
 .mtcheck-table__item:not(:last-child) {
@@ -1131,10 +1125,17 @@ fieldset {
     width: 100%;
   }
 
+  .select__display {
+    font-size: 16px;
+  }
+
+  .select__item {
+    font-size: 15px;
+  }
+
   .select__display,
   .select__item {
-    padding: 17px 21px;
-    font-size: 16px;
+    padding: 15px 21px;
   }
 
   .textarea {
@@ -1225,17 +1226,12 @@ fieldset {
     justify-content: flex-end;
   }
 
-  .mtcheck-products__summary {
-    display: none;
-  }
-
   .mtcheck-user {
     padding: 55px var(--container-horizontal-offset) 53px;
   }
 
   .mtcheck-user__head {
     flex-direction: row;
-    align-items: center;
     justify-content: space-between;
     margin-bottom: 16px;
   }
@@ -1319,10 +1315,6 @@ fieldset {
     padding: 42px var(--container-horizontal-offset) 45px;
   }
 
-  .mtcheck-delivery .message {
-    display: none;
-  }
-
   .mtcheck-pay__head {
     margin-bottom: 15px;
   }
@@ -1354,10 +1346,6 @@ fieldset {
 
   .mtcheck-offers__coupon {
     margin-bottom: 18px;
-  }
-
-  .mtcheck-table__item-name {
-    max-width: initial;
   }
 
   .mtcheck-table__item-value::before {
@@ -1460,14 +1448,14 @@ fieldset {
     height: 7px;
   }
 
-  .radio__text {
+  .input,
+  .radio__text,
+  .select__display {
     font-size: 17px;
   }
 
-  .input,
-  .select__display,
   .select__item {
-    font-size: 17px;
+    font-size: 16px;
   }
 
   .textarea {
@@ -1520,6 +1508,10 @@ fieldset {
 
   .mtcheck-product .checkbox__display {
     margin-right: 30px;
+  }
+
+  .mtcheck-product__restore {
+    font-size: 16px;
   }
 
   .mtcheck-product__properties {
@@ -1658,10 +1650,6 @@ fieldset {
     margin-bottom: 30px;
   }
 
-  .mtcheck-table__item--margin ~ .mtcheck-table__item p {
-    max-width: min(100%, 260px);
-  }
-
   .mtcheck-total__title {
     font-size: 19px;
   }
@@ -1712,6 +1700,12 @@ fieldset {
     font-size: 36px;
   }
 
+  .message {
+    max-width: 480px;
+    margin-top: 36px;
+    font-size: 16px;
+  }
+
   .mtcheck-display {
     padding: 66px 0 516px;
   }
@@ -1745,19 +1739,8 @@ fieldset {
     border-radius: 5px;
   }
 
-  .mtcheck-delivery .message {
-    display: flex;
-    max-width: 480px;
-    margin-top: 36px;
-    font-size: 16px;
-  }
-
   .mtcheck-offers {
     margin-right: 44px;
-  }
-
-  .mtcheck-table__item--margin ~ .mtcheck-table__item p {
-    max-width: initial;
   }
 
   .mtcheck-submit .checkbox__text {
@@ -1802,13 +1785,8 @@ fieldset {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  .mtcheck-delivery .message,
   .mtcheck-confirm .mtcheck-submit {
     display: none;
-  }
-
-  .mtcheck-table__item--margin ~ .mtcheck-table__item p {
-    max-width: min(100%, 248px);
   }
 
   .mtcheck-summary {
@@ -1841,9 +1819,5 @@ fieldset {
   .mtcheck-register__data,
   .mtcheck-register__password fieldset {
     grid-template-columns: repeat(4, 1fr);
-  }
-
-  .mtcheck-delivery .message {
-    display: flex;
   }
 }

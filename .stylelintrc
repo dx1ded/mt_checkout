@@ -6,7 +6,7 @@
 	"plugins": ["stylelint-order"],
 	"rules": {
 		"no-empty-source": null,
-    "value-list-comma-newline-after": "always-multi-line",
+    "value-list-comma-newline-after": null,
     "no-descending-specificity": null,
     "value-no-vendor-prefix": null,
     "selector-class-pattern": null,

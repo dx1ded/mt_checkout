@@ -13,18 +13,18 @@
     <link href="./styles/styles.css" rel="stylesheet"></link>
     <title>Корзина</title>
   </head>
-  <body>
+  <body class="mtcheck-body">
     <main>
       <div class="mtcheck-display">
-        <div class="container">
+        <div class="mtcheck-container">
           <p class="title title--xl title--primary mtcheck-display__title">Оформление заказа</p>
         </div>
-        <div class="container mtcheck-display__wrapper">
+        <div class="mtcheck-container mtcheck-display__wrapper">
           <div class="mtcheck-display__left">
             <div class="mtcheck-products">
               <div class="mtcheck-products__head">
                 <label class="checkbox">
-                  <input type="checkbox" class="checkbox__input" id="select-all">
+                  <input type="checkbox" class="checkbox__input" id="select-all" checked>
                   <span class="checkbox__display"></span>
                   <span class="checkbox__text"></span>
                 </label>
@@ -84,7 +84,7 @@
                   <input type="text" class="input input--min" name="company" placeholder="Компания">
                   <input type="tel" class="input input--min" name="phone" placeholder="Телефон" required>
                   <input type="email" class="input input--min" name="email" placeholder="Емейл">
-                  <input type="number" class="input input--min" name="index" placeholder="Индекс">
+                  <input type="text" class="input input--min" name="index" placeholder="Индекс">
                 </fieldset>
                 <fieldset class="mtcheck-register__location">
                   <span class="visually-hidden">Нахождение покупателя</span>
@@ -119,7 +119,7 @@
                   <input type="text" class="input" name="city" placeholder="Город">
                   <input type="text" class="input" name="address" placeholder="Адрес">
                 </fieldset>
-                <textarea class="textarea mtcheck-register__comment" name="text" placeholder="Комментарий к заказу, пожелания, уточнения и т.п" cols="30" rows="6"></textarea>
+                <textarea class="textarea mtcheck-register__comment" name="text" placeholder="Комментарий к заказу, пожелания, уточнения и т.п." cols="30" rows="6"></textarea>
                 <div class="mtcheck-register__password">
                   <p class="text text--sm text--thindly">Зарегистрироваться для накопительной скидки &mdash;</p>
                   <fieldset>
@@ -130,12 +130,12 @@
                 </div>
                 <div class="mtcheck-register__permits">
                   <label class="checkbox checkbox--sm checkbox--gray">
-                    <input type="checkbox" class="visually-hidden checkbox__input">
+                    <input type="checkbox" class="visually-hidden checkbox__input" checked>
                     <span class="checkbox__display"></span>
                     <span class="checkbox__text">подписаться на новостную рассылку</span>
                   </label>
                   <label class="checkbox checkbox--sm checkbox--gray">
-                    <input type="checkbox" class="visually-hidden checkbox__input">
+                    <input type="checkbox" class="visually-hidden checkbox__input" required checked>
                     <span class="checkbox__display"></span>
                     <span class="checkbox__text">отправляя данные я даю согласие на обработку персональной информации согласно <a href="#">политики конфиденциальности</a> данного сайта</span>
                   </label>
@@ -282,7 +282,7 @@
                     <span class="link text text--sm">оформить по телефону</span>
                   </button>
                   <label class="checkbox checkbox--sm checkbox--gray">
-                    <input type="checkbox" class="visually-hidden checkbox__input">
+                    <input type="checkbox" class="visually-hidden checkbox__input" required checked>
                     <span class="checkbox__display"></span>
                     <span class="checkbox__text">
                       согласен с политикой <a href="#">возврата товара</a> и <a href="#">правилами</a> использования сайта
@@ -327,7 +327,7 @@
                 <span class="link text text--sm">Оформить по телефону</span>
               </button>
               <label class="checkbox checkbox--sm checkbox--gray">
-                <input type="checkbox" class="visually-hidden checkbox__input">
+                <input type="checkbox" class="visually-hidden checkbox__input" required checked>
                 <span class="checkbox__display"></span>
                 <span class="checkbox__text">
                   согласен с политикой <a href="#">возврата товара</a> и <a href="#">правилами</a> использования сайта
