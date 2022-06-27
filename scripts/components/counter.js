@@ -1,6 +1,7 @@
-const counters = document.querySelectorAll(".counter")
+import { updateProductsSummary } from "./products"
+import { calculateProductPrice } from "./price"
 
-counters.forEach((counter) => {
+export function initializeCounter(counter) {
   const parent = counter.parentElement
   
   const display = counter.querySelector(".counter__display")
@@ -22,6 +23,8 @@ counters.forEach((counter) => {
     }
 
     isEnough(parent, maxValue, value)
+    calculateProductPrice(event.target.closest(".mtcheck-product"))
+    updateProductsSummary()
   })
 
   ;[increment, decrement].forEach((button) => button.addEventListener(
@@ -31,9 +34,11 @@ counters.forEach((counter) => {
       
       types[type]()
       isEnough(parent, maxValue, +display.value)
+      calculateProductPrice(event.target.closest(".mtcheck-product"))
+      updateProductsSummary()
     }
   ))
-})
+}
 
 function isEnough(parent, maxValue, currentValue) {
   const isSign = parent.querySelector(".mtcheck-product__sign")

@@ -1,6 +1,6 @@
 // Components
 
-import "./components/products"
+import { updateProductsSummary } from "./components/products"
 import "./components/counter"
 import "./components/tabs"
 import "./components/select"
@@ -33,4 +33,9 @@ function toggleSelectAll() {
   }
 
   toggleActions()
+  updateProductsSummary()
 }
+
+// Update prices (by selected elements)
+
+updateProductsSummary()

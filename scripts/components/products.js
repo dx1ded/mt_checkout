@@ -1,5 +1,8 @@
 import { productMarkup } from "../productMarkup"
+import { normalizePrice } from "../utils"
+import { calculateProductsPrice } from "./price"
 import { toggleActions } from "./actions"
+import { initializeCounter } from "./counter"
 import {
   getProductsFromStorage,
   getProductFromStorage,
@@ -8,7 +11,7 @@ import {
   restoreProductFromStorage
 } from "../storage"
 
-// Render products
+// Render products (with its functionality)
 
 const productsContainer = document.querySelector(".mtcheck-products__list")
 const products = getProductsFromStorage()
@@ -25,6 +28,7 @@ products.forEach((product) => {
   const select = node.querySelector(".checkbox__input")
   const remove = node.querySelector(".mtcheck-product__remove")
   const restore = node.querySelector(".mtcheck-product__restore")
+  const counter = node.querySelector(".counter")
 
   if (select) {
     select.addEventListener("change", () => {
@@ -34,6 +38,8 @@ products.forEach((product) => {
       const checkedItemsCount = document.querySelectorAll(".mtcheck-product__left .checkbox__input:checked")
 
       if (activeProductsCount !== checkedItemsCount) selectAllCheckbox.checked = false
+
+      updateProductsSummary()
     })
   }
   
@@ -44,6 +50,7 @@ products.forEach((product) => {
 
       removeProductFromStorage(id)
       removeProductFromPage(productNode, id)
+      updateProductsSummary()
     })
   }
   
@@ -54,8 +61,11 @@ products.forEach((product) => {
 
       restoreProductFromStorage(id)
       restoreProductFromPage(productNode, id)
+      updateProductsSummary()
     })
   }
+
+  initializeCounter(counter)
 
   productsContainer.insertAdjacentElement("afterbegin", node)
 })
@@ -82,6 +92,7 @@ export function removeProductFromPage(currentNode, id) {
 
     removeProductFromStorage(id)
     removeProductFromPage(productNode, id)
+    updateProductsSummary()
   })
 
   restore.addEventListener("click", ({ target }) => {
@@ -90,6 +101,7 @@ export function removeProductFromPage(currentNode, id) {
 
     restoreProductFromStorage(id)
     restoreProductFromPage(productNode, id)
+    updateProductsSummary()
   })
 
   selectAllText.textContent = `Выбрать все (${getProductsCountFromStorage()})`
@@ -109,6 +121,7 @@ function restoreProductFromPage(currentNode, id) {
 
   const select = newNode.querySelector(".checkbox__input")
   const remove = newNode.querySelector(".mtcheck-product__remove")
+  const counter = newNode.querySelector(".counter")
 
   if (selectAllCheckbox.checked) select.checked = true
 
@@ -119,6 +132,8 @@ function restoreProductFromPage(currentNode, id) {
     const checkedItemsCount = document.querySelectorAll(".mtcheck-product__left .checkbox__input:checked")
 
     if (activeProductsCount !== checkedItemsCount) selectAllCheckbox.checked = false
+
+    updateProductsSummary()
   })
 
   remove.addEventListener("click", ({ target }) => {
@@ -127,7 +142,10 @@ function restoreProductFromPage(currentNode, id) {
 
     removeProductFromStorage(id)
     removeProductFromPage(productNode, id)
+    updateProductsSummary()
   })
+
+  initializeCounter(counter)
 
   selectAllText.textContent = `Выбрать все (${getProductsCountFromStorage()})`
 
@@ -135,4 +153,16 @@ function restoreProductFromPage(currentNode, id) {
   productsContainer.insertBefore(newNode, sibling)
   
   toggleActions()
+}
+
+// Update products-summary (under the products list) (count / price)
+
+export function updateProductsSummary() {
+  const summaryCount = document.querySelector(".mtcheck-products__count")
+  const summaryPrice = document.querySelector(".mtcheck-products__sum")
+
+  const { count, price } = calculateProductsPrice()
+
+  summaryCount.textContent = `Товаров, ${count} шт.`
+  summaryPrice.childNodes[0].textContent = `${normalizePrice(price)} `
 }

@@ -12,7 +12,7 @@ export const productMarkup = ({
 }) => (
   !isDeleted
     ? `
-      <article class="mtcheck-product" data-id="${id}">
+      <article class="mtcheck-product" data-id="${id}" data-price="${price}">
         <div class="mtcheck-product__left">
           <label class="checkbox">
             <input type="checkbox" class="visually-hidden checkbox__input">
@@ -44,7 +44,7 @@ export const productMarkup = ({
             </div>
           </div>
           <div class="mtcheck-product__wrapper">
-            <p class="text text--md text--primary mtcheck-product__price">${normalizePrice(price)} <span>&#8381;</span></p>
+            <p class="text text--md text--primary mtcheck-product__price">${normalizePrice(price * count)} <span>&#8381;</span></p>
             <button class="btn-reset mtcheck-product__remove" aria-label="Удалить товар из корзины"></button>
           </div>
         </div>
