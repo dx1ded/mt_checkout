@@ -19,6 +19,7 @@
   --color-thindly: #7099b9;
   --color-scorpion: #606060;
   --color-cararra: #edeee9;
+  --color-green: #a1b812;
 
   /* Sizes */
 
@@ -433,30 +434,59 @@ fieldset {
   background-color: var(--color-alto);
 }
 
-.message--danger {
+.message {
+  position: absolute;
+  z-index: 1000;
   display: flex;
   align-items: center;
-  max-width: 282px;
+  justify-content: space-between;
   padding: 12px 20px;
-  margin-top: 29px;
-  margin-left: calc(var(--container-horizontal-offset) * -1);
   font-size: 14px;
   line-height: 1.32;
   color: var(--color-light);
+  border-radius: 10px;
+}
+
+.message__close {
+  display: inline-block;
+  flex-shrink: 0;
+  width: 10px;
+  height: 10px;
+  margin-left: 10px;
+  cursor: pointer;
+  background-color: transparent;
+  background-image: url("../images/white-cross.svg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  border: none;
+  outline: none;
+}
+
+.message::before {
+  display: inline-block;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+  content: "";
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.message--danger {
   background-color: var(--color-secondary);
-  border-radius: 0 10px 10px 0;
 }
 
 .message--danger::before {
-  display: inline-block;
-  flex-shrink: 0;
-  width: 30px;
-  height: 30px;
-  margin-right: 10px;
-  content: "";
   background-image: url("../images/danger.svg");
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
+}
+
+.message--success {
+  background-color: var(--color-green);
+}
+
+.message--success::before {
+  background-image: url("../images/success.svg");
 }
 
 [data-tab] {
@@ -795,6 +825,14 @@ fieldset {
   margin-bottom: 20px;
 }
 
+.mtcheck-delivery .message {
+  position: static;
+  max-width: 282px;
+  margin-top: 29px;
+  margin-left: calc(var(--container-horizontal-offset) * -1);
+  border-radius: 0 10px 10px 0;
+}
+
 /* mtcheck-pay */
 
 .mtcheck-pay__head {
@@ -841,6 +879,7 @@ fieldset {
 
 .mtcheck-offers__coupon,
 .mtcheck-offers__certificate {
+  position: relative;
   display: flex;
 }
 
@@ -853,13 +892,13 @@ fieldset {
   border-radius: 5px 0 0 5px;
 }
 
-.mtcheck-offers button {
+.mtcheck-offers [type="submit"] {
   position: relative;
   flex-basis: 65px;
   border-radius: 0 5px 5px 0;
 }
 
-.mtcheck-offers button::after {
+.mtcheck-offers [type="submit"]::after {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -1336,11 +1375,11 @@ fieldset {
     font-size: 15px;
   }
 
-  .mtcheck-offers button {
+  .mtcheck-offers [type="submit"] {
     padding: 16px 24px;
   }
 
-  .mtcheck-offers button::after {
+  .mtcheck-offers [type="submit"]::after {
     background-image: none;
   }
 
@@ -1700,12 +1739,6 @@ fieldset {
     font-size: 36px;
   }
 
-  .message {
-    max-width: 480px;
-    margin-top: 36px;
-    font-size: 16px;
-  }
-
   .mtcheck-display {
     padding: 66px 0 516px;
   }
@@ -1737,6 +1770,12 @@ fieldset {
 
   .mtcheck-login [type="submit"] {
     border-radius: 5px;
+  }
+
+  .mtcheck-delivery .message {
+    max-width: 480px;
+    margin-top: 36px;
+    font-size: 16px;
   }
 
   .mtcheck-offers {

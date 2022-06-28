@@ -10,6 +10,12 @@ import {
   removeProductFromStorage,
   restoreProductFromStorage
 } from "../storage"
+import {
+  updateConfirmTable,
+  updateOrderTable,
+  updateConfirmTotal,
+  updateSummaryTotal
+} from "./total"
 
 // Render products (with its functionality)
 
@@ -40,6 +46,12 @@ products.forEach((product) => {
       if (activeProductsCount !== checkedItemsCount) selectAllCheckbox.checked = false
 
       updateProductsSummary()
+
+      const totalPrice = updateConfirmTable()
+      updateOrderTable()
+
+      updateConfirmTotal(totalPrice)
+      updateSummaryTotal(totalPrice)
     })
   }
   
@@ -51,6 +63,12 @@ products.forEach((product) => {
       removeProductFromStorage(id)
       removeProductFromPage(productNode, id)
       updateProductsSummary()
+
+      const totalPrice = updateConfirmTable()
+      updateOrderTable()
+
+      updateConfirmTotal(totalPrice)
+      updateSummaryTotal(totalPrice)
     })
   }
   
@@ -62,6 +80,12 @@ products.forEach((product) => {
       restoreProductFromStorage(id)
       restoreProductFromPage(productNode, id)
       updateProductsSummary()
+
+      const totalPrice = updateConfirmTable()
+      updateOrderTable()
+
+      updateConfirmTotal(totalPrice)
+      updateSummaryTotal(totalPrice)
     })
   }
 
@@ -93,6 +117,12 @@ export function removeProductFromPage(currentNode, id) {
     removeProductFromStorage(id)
     removeProductFromPage(productNode, id)
     updateProductsSummary()
+
+    const totalPrice = updateConfirmTable()
+    updateOrderTable()
+
+    updateConfirmTotal(totalPrice)
+    updateSummaryTotal(totalPrice)
   })
 
   restore.addEventListener("click", ({ target }) => {
@@ -102,6 +132,12 @@ export function removeProductFromPage(currentNode, id) {
     restoreProductFromStorage(id)
     restoreProductFromPage(productNode, id)
     updateProductsSummary()
+
+    const totalPrice = updateConfirmTable()
+    updateOrderTable()
+
+    updateConfirmTotal(totalPrice)
+    updateSummaryTotal(totalPrice)
   })
 
   selectAllText.textContent = `Выбрать все (${getProductsCountFromStorage()})`
@@ -134,6 +170,12 @@ function restoreProductFromPage(currentNode, id) {
     if (activeProductsCount !== checkedItemsCount) selectAllCheckbox.checked = false
 
     updateProductsSummary()
+
+    const totalPrice = updateConfirmTable()
+    updateOrderTable()
+
+    updateConfirmTotal(totalPrice)
+    updateSummaryTotal(totalPrice)
   })
 
   remove.addEventListener("click", ({ target }) => {
@@ -143,6 +185,12 @@ function restoreProductFromPage(currentNode, id) {
     removeProductFromStorage(id)
     removeProductFromPage(productNode, id)
     updateProductsSummary()
+
+    const totalPrice = updateConfirmTable()
+    updateOrderTable()
+
+    updateConfirmTotal(totalPrice)
+    updateSummaryTotal(totalPrice)
   })
 
   initializeCounter(counter)

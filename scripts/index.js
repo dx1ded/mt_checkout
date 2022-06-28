@@ -1,14 +1,21 @@
 // Components
 
+import { getProductsCountFromStorage } from "./storage"
+
 import { updateProductsSummary } from "./components/products"
 import "./components/counter"
 import "./components/tabs"
 import "./components/select"
+import "./components/offers"
+import { toggleActions } from "./components/actions"
+import {
+  updateConfirmTable,
+  updateOrderTable,
+  updateConfirmTotal,
+  updateSummaryTotal
+} from "./components/total"
 
 // Select all products option
-
-import { getProductsCountFromStorage } from "./storage"
-import { toggleActions } from "./components/actions"
 
 const selectAllText = document.querySelector(".mtcheck-products__head .checkbox__text")
 const selectAllCheckbox = document.querySelector("#select-all")
@@ -34,8 +41,46 @@ function toggleSelectAll() {
 
   toggleActions()
   updateProductsSummary()
+
+  const totalPrice = updateConfirmTable()
+  updateOrderTable()
+
+  updateConfirmTotal(totalPrice)
+  updateSummaryTotal(totalPrice)
 }
+
+// Delivery on change
+
+const deliveryRadio = document.querySelectorAll("[name=delivery-type]")
+
+deliveryRadio.forEach((radio) => radio.addEventListener("change", () => {
+  const totalPrice = updateConfirmTable()
+  updateOrderTable()
+
+  updateConfirmTotal(totalPrice)
+  updateSummaryTotal(totalPrice)
+}))
+
+// Pay on change
+
+const payRadio = document.querySelectorAll("[name=pay-type]")
+
+payRadio.forEach((radio) => radio.addEventListener("change", () => {
+  const totalPrice = updateConfirmTable()
+  updateOrderTable()
+
+  updateConfirmTotal(totalPrice)
+  updateSummaryTotal(totalPrice)
+}))
 
 // Update prices (by selected elements)
 
 updateProductsSummary()
+
+// Update tables (summary / total)
+
+const totalPrice = updateConfirmTable()
+updateOrderTable()
+
+updateConfirmTotal(totalPrice)
+updateSummaryTotal(totalPrice)

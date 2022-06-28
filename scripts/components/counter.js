@@ -1,5 +1,11 @@
 import { updateProductsSummary } from "./products"
 import { calculateProductPrice } from "./price"
+import {
+  updateConfirmTable,
+  updateOrderTable,
+  updateConfirmTotal,
+  updateSummaryTotal
+} from "./total"
 
 export function initializeCounter(counter) {
   const parent = counter.parentElement
@@ -25,6 +31,12 @@ export function initializeCounter(counter) {
     isEnough(parent, maxValue, value)
     calculateProductPrice(event.target.closest(".mtcheck-product"))
     updateProductsSummary()
+
+    const totalPrice = updateConfirmTable()
+    updateOrderTable()
+
+    updateConfirmTotal(totalPrice)
+    updateSummaryTotal(totalPrice)
   })
 
   ;[increment, decrement].forEach((button) => button.addEventListener(
@@ -36,6 +48,12 @@ export function initializeCounter(counter) {
       isEnough(parent, maxValue, +display.value)
       calculateProductPrice(event.target.closest(".mtcheck-product"))
       updateProductsSummary()
+
+      const totalPrice = updateConfirmTable()
+      updateOrderTable()
+
+      updateConfirmTotal(totalPrice)
+      updateSummaryTotal(totalPrice)
     }
   ))
 }

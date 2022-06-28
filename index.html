@@ -163,19 +163,19 @@
                 Бесплатная доставка по Минску при заказе на сумму не менее 250руб, по Минскому району - не менее 700руб.
               </p>
               <div class="mtcheck-delivery__types">
-                <label class="radio mtcheck-delivery__type">
+                <label class="radio mtcheck-delivery__type" data-price="0">
                   <input type="radio" name="delivery-type" class="visually-hidden radio__input" checked>
                   <span class="radio__display"></span>
                   <span class="radio__text">Самовывоз</span>
                   <span class="radio__text mtcheck-delivery__type-price">0 &#8381;</span>
                 </label>
-                <label class="radio mtcheck-delivery__type">
+                <label class="radio mtcheck-delivery__type" data-price="300">
                   <input type="radio" name="delivery-type" class="visually-hidden radio__input">
                   <span class="radio__display"></span>
                   <span class="radio__text">Фиксированная стоимость доставки</span>
                   <span class="radio__text mtcheck-delivery__type-price">300 &#8381;</span>
                 </label>
-                <label class="radio mtcheck-delivery__type">
+                <label class="radio mtcheck-delivery__type" data-price="600">
                   <input type="radio" name="delivery-type" class="visually-hidden radio__input">
                   <span class="radio__display"></span>
                   <span class="radio__text">Доставка почтой России</span>
@@ -212,65 +212,21 @@
               </div>
               <div class="mtcheck-confirm__row">
                 <div class="mtcheck-offers">
-                  <div class="mtcheck-offers__coupon">
+                  <form class="mtcheck-offers__coupon">
                     <input type="text" class="input" name="coupon" placeholder="Купон">
-                    <button class="btn-reset btn btn--primary">
+                    <button type="submit" class="btn-reset btn btn--primary">
                       <span>Применить</span>
                     </button>
-                  </div>
-                  <div class="mtcheck-offers__certificate">
-                    <input type="text" class="input" name="coupon" placeholder="Подарочный сертификат">
-                    <button class="btn-reset btn btn--primary">
+                  </form>
+                  <form class="mtcheck-offers__certificate">
+                    <input type="text" class="input" name="certificate" placeholder="Подарочный сертификат">
+                    <button type="submit" class="btn-reset btn btn--primary">
                       <span>Применить</span>
                     </button>
-                  </div>
+                  </form>
                 </div>
                 <div class="mtcheck-info">
-                  <div class="mtcheck-table">
-                    <div class="mtcheck-table__item">
-                      <p class="text text--md text--primary mtcheck-table__item-name">
-                        Доставка 
-                        <span>(фиксированная стоимость доставки)</span>
-                      </p>
-                      <span class="text text--md text--primary mtcheck-table__item-value">300 &#8381;</span>
-                    </div>
-                    <div class="mtcheck-table__item mtcheck-table__item--margin">
-                      <p class="text text--md text--primary mtcheck-table__item-name">
-                        Оплата 
-                        <span>(банковская карта)</span>
-                      </p>
-                    </div>
-                    <div class="mtcheck-table__item">
-                      <p class="text text--md text--primary mtcheck-table__item-name">Бонусные баллы</p>
-                      <span class="text text--md text--primary mtcheck-table__item-value">400 баллов</span>
-                    </div>
-                    <div class="mtcheck-table__item">
-                      <p class="text text--md text--primary mtcheck-table__item-name">
-                        Скидка группе покупателей, 5% 
-                        <span>(серебрянный клиент)</span>
-                      </p>
-                      <span class="text text--md text--primary mtcheck-table__item-value">- 650 &#8381;</span>
-                    </div>
-                    <div class="mtcheck-table__item">
-                      <p class="text text--md text--primary mtcheck-table__item-name">
-                        Купон на скидку 
-                        <span>(78NHT)</span>
-                      </p>
-                      <span class="text text--md text--primary mtcheck-table__item-value">- 5000 &#8381;</span>
-                    </div>
-                    <div class="mtcheck-table__item">
-                      <p class="text text--md text--primary mtcheck-table__item-name">
-                        Скидка за сумму заказа, 3%
-                      </p>
-                      <span class="text text--md text--primary mtcheck-table__item-value">- 4000 &#8381;</span>
-                    </div>
-                    <div class="mtcheck-table__item">
-                      <p class="text text--md text--primary mtcheck-table__item-name">
-                        Налог НДС, 20%
-                      </p>
-                      <span class="text text--md text--primary mtcheck-table__item-value"> 12 000 &#8381;</span>
-                    </div>
-                  </div>
+                  <div class="mtcheck-table"></div>
                   <div class="mtcheck-total">
                     <p class="title title--sm title--primary mtcheck-total__title">Итого</p>
                     <p class="title title--md title--primary mtcheck-total__sum">6 137 681 <span>&#8381;</span></p>
@@ -298,29 +254,7 @@
               <button class="btn-reset info-btn" aria-label="Открыть модальное окно" data-modal></button>
               <p class="title title--primary mtcheck-summary__sum">6 137 681 <span>&#8381;</span></p>
             </div>
-            <div class="mtcheck-table">
-              <div class="mtcheck-table__item">
-                <p class="text mtcheck-table__item-name">
-                  Доставка 
-                  <span>(фиксированная стоимость доставки)</span>
-                </p>
-                <span class="text mtcheck-table__item-value">300 &#8381;</span>
-              </div>
-              <div class="mtcheck-table__item mtcheck-table__item--margin">
-                <p class="text mtcheck-table__item-name">
-                  Оплата 
-                  <span>(банковская карта)</span>
-                </p>
-              </div>
-              <div class="mtcheck-table__item">
-                <p class="text mtcheck-table__item-name">Товары, с учетом налогов</p>
-                <span class="text mtcheck-table__item-value">5 128 785 &#8381;</span>
-              </div>
-              <div class="mtcheck-table__item">
-                <p class="text mtcheck-table__item-name">Скидка, %</p>
-                <span class="text mtcheck-table__item-value">- 650 &#8381;</span>
-              </div>
-            </div>
+            <div class="mtcheck-table"></div>
             <div class="mtcheck-submit">
               <button class="btn-reset btn btn--primary mtcheck-submit__button">Отправить заказ</button>
               <button class="btn-reset mtcheck-submit__by-phone">
